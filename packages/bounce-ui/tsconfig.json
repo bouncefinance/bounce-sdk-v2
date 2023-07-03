@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "outDir": "lib",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "lib",
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
