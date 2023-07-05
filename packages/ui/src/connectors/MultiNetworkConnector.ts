@@ -1,16 +1,17 @@
 import { NetworkConnector } from './NetworkConnector'
 import { Web3Provider } from '@ethersproject/providers'
 import { ChainId, SUPPORTED_NETWORKS } from '../constants/chain'
+import { ENV_CONFIGS } from '@/constants/config'
 
 export function getRpcUrl(chainId: ChainId) {
   switch (chainId) {
     case ChainId.MAINNET:
       // return `https://rpc.ankr.com/eth`
-      return `https://mainnet.infura.io/v3/` + process.env.REACT_APP_INFURA_KEY
+      return `https://mainnet.infura.io/v3/` + ENV_CONFIGS.REACT_APP_INFURA_KEY
     case ChainId.SEPOLIA:
-      return 'https://sepolia.infura.io/v3/' + process.env.REACT_APP_INFURA_KEY
+      return 'https://sepolia.infura.io/v3/' + ENV_CONFIGS.REACT_APP_INFURA_KEY
     case ChainId.GÖRLI:
-      return 'https://goerli.infura.io/v3/' + process.env.REACT_APP_INFURA_KEY
+      return 'https://goerli.infura.io/v3/' + ENV_CONFIGS.REACT_APP_INFURA_KEY
     default:
       return SUPPORTED_NETWORKS[chainId]?.rpcUrls[0] || ''
   }

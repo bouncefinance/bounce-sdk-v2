@@ -27,7 +27,7 @@ const statusSx: { [key in string]: any } = {
   }
 }
 
-const AuctionStatus: React.FC<IAuctionStatusProps> = ({ status, dateStr }) => {
+export const AuctionStatus: React.FC<IAuctionStatusProps> = ({ status, dateStr }) => {
   return (
     <Stack
       sx={{ ...styles.statusTag, ...(statusSx ? statusSx[status] : {}) } as SxProps}
@@ -42,5 +42,3 @@ const AuctionStatus: React.FC<IAuctionStatusProps> = ({ status, dateStr }) => {
     </Stack>
   )
 }
-
-export default AuctionStatus

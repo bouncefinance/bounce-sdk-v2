@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, LinearProgress, Stack, Typography } from '@mui/material'
-import { PoolStatus } from '@/api/pool/type'
-import { formatNumber } from '@/utils/number'
+import { PoolStatus } from '../../../api/pool/type'
+import { formatNumber } from '../../../utils/number'
 
 export type IAuctionProgressProps = {
   status: PoolStatus

@@ -1,0 +1,46 @@
+/* .dumi-default-header-content {
+  gap: 48px;
+} */
+:root {
+  --left-width: 0;
+}
+.dumi-default-header-left,
+.dumi-default-sidebar {
+  width: 30%;
+}
+@media (min-width: 992px) {
+  :root {
+    --left-width: 25%;
+  }
+  .dumi-default-header-left,
+  .dumi-default-sidebar {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --left-width: 20%;
+  }
+  .dumi-default-header-left,
+  .dumi-default-sidebar {
+    width: 20%;
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --left-width: 16%;
+  }
+  .dumi-default-header-left,
+  .dumi-default-sidebar {
+    width: 16%;
+  }
+}
+
+.dumi-default-doc-layout > main,
+.dumi-default-header-content {
+  max-width: unset;
+}
+/* 
+.dumi-default-sidebar > dl > dd > a {
+  font-size: 14px;
+} */

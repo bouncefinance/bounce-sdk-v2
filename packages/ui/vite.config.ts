@@ -2,9 +2,11 @@ import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
-import typescript from '@rollup/plugin-typescript'
-import dts from 'vite-plugin-dts'
+// import dts from 'vite-plugin-dts'
 import svgr from 'vite-plugin-svgr'
+import typescript from '@rollup/plugin-typescript'
+// import typescript from 'rollup-plugin-typescript2'
+// import ttypescript from 'ttypescript'
 // import presetAttributify from '@unocss/preset-attributify'
 // https://vitejs.dev/config/
 const resolvePath = (str: string) => resolve(__dirname, str)
@@ -55,20 +57,34 @@ export default ({ mode }) => {
             // declarationDir: resolvePath('lib'),
             // allowSyntheticDefaultImports: true
           })
+          // typescript({
+          //   typescript: ttypescript,
+          //   tsconfig: './tsconfig.json'
+          //   // tsconfigDefaults: {
+          //   //   compilerOptions: {
+          //   //     plugins: [
+          //   //       { transform: 'typescript-transform-paths' },
+          //   //       {
+          //   //         transform: 'typescript-transform-paths',
+          //   //         afterDeclarations: true
+          //   //       }
+          //   //     ]
+          //   //   }
+          //   // }
+          // })
           // postcss({ extract: 'css/index.css' }),
         ],
         // 确保外部化处理那些你不想打包进库的依赖
         external: [
-          '@ant-design/icons',
           'ahooks',
           'antd',
-          'dayjs',
           'react',
           'react-dom',
           'react-router-dom',
-          'react-transition-group',
           'styled-components',
-          /^@mui/
+          /^@mui/,
+          'moment',
+          'bignumber.js'
         ],
         output: {
           // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量

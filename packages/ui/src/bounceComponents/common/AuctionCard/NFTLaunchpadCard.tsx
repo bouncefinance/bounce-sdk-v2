@@ -1,10 +1,10 @@
 import { Card, CardHeader, CardMedia, Chip, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import AuctionStatus from './AuctionStatus'
+import { AuctionStatus } from './AuctionStatus'
 import styles from './styles'
-import { ReactComponent as NftTagSVG } from '@/assets/imgs/components/nftTag.svg'
-import { ReactComponent as ChainIconSVG } from '@/assets/imgs/components/chainIcon.svg'
+import { ReactComponent as NftTagSVG } from '../../../assets/imgs/components/nftTag.svg'
+import { ReactComponent as ChainIconSVG } from '../../../assets/imgs/components/chainIcon.svg'
 
 export type INFTLaunchpadCardProps = {
   poolId: string
@@ -30,8 +30,8 @@ export const NFTLaunchpadCard: React.FC<INFTLaunchpadCardProps> = ({
 }) => {
   return (
     <Card sx={styles.card} elevation={0} style={{ minWidth: 355, padding: 0 }}>
-      <Box position={'relative'}>
-        <Box position={'absolute'} width={'100%'} px={16} top={16} justifyContent="space-between" display={'flex'}>
+      <Box position="relative">
+        <Box position="absolute" width="100%" px={16} top={16} justifyContent="space-between" display="flex">
           <Chip
             label={'#' + poolId}
             sx={{
@@ -44,18 +44,12 @@ export const NFTLaunchpadCard: React.FC<INFTLaunchpadCardProps> = ({
           />
           <AuctionStatus status={status} dateStr={dateStr || ''} />
         </Box>
-        <CardMedia component="img" alt="green iguana" height="204" image="/imgs/company/banner.png"></CardMedia>
+        <CardMedia component="img" alt="green iguana" height="204" image="/imgs/company/banner.png" />
       </Box>
-      <Box p={'0 16px 16px'}>
+      <Box p="0 16px 16px">
         <CardHeader title={title} />
         <div>{holder}</div>
-        <Stack
-          direction={'row'}
-          sx={{ pt: 22 }}
-          display={'flex'}
-          alignItems={'flex-end'}
-          justifyContent={'space-between'}
-        >
+        <Stack direction="row" sx={{ pt: 22 }} display="flex" alignItems="flex-end" justifyContent="space-between">
           <Typography variant="h2" fontSize={20}>
             {price}&nbsp;ETH
           </Typography>

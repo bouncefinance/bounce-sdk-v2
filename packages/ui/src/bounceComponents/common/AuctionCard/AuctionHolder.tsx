@@ -1,8 +1,8 @@
 import { Avatar, Stack, Typography } from '@mui/material'
 import React from 'react'
 import VerifiedIcon from '../VerifiedIcon'
-import DefaultAvatarSVG from '@/assets/imgs/profile/yellow_avatar.svg'
-import { VerifyStatus } from '@/api/profile/type'
+import DefaultAvatarSVG from '../../../assets/imgs/profile/yellow_avatar.svg'
+import { VerifyStatus } from '../../../api/profile/type'
 import { useNavigate } from 'react-router-dom'
 
 export type IAuctionHolderProps = {

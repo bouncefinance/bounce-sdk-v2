@@ -3,6 +3,7 @@ import PopperCard from '@/components/PopperCard'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useNavigate } from 'react-router-dom'
 import { routes } from '@/constants/routes'
+import { ENV_CONFIGS } from '@/constants/config'
 
 const StyledTextLink = styled(Link)({
   display: 'flex',
@@ -35,7 +36,7 @@ const homeList = [
 export default function Resources() {
   const navigate = useNavigate()
   return (
-    <Stack spacing={50} direction={'row'} ml={80}>
+    <Stack spacing={50} direction="row" ml={80}>
       <PopperCard
         targetElement={
           <StyledTextLink>
@@ -52,7 +53,7 @@ export default function Resources() {
           ))}
         </Box>
       </PopperCard>
-      <StyledTextLink target="_blank" href={process.env.REACT_APP_TOKEN_URL}>
+      <StyledTextLink target="_blank" href={ENV_CONFIGS.REACT_APP_TOKEN_URL}>
         Token
       </StyledTextLink>
     </Stack>

@@ -13,6 +13,7 @@ import { ExpirationPlugin } from 'workbox-expiration'
 import { createHandlerBoundToURL, precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
+import { ENV_CONFIGS } from './constants/config'
 
 declare const self: ServiceWorkerGlobalScope
 
@@ -50,7 +51,7 @@ registerRoute(
     // Return true to signal that we want to use the handler.
     return true
   },
-  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+  createHandlerBoundToURL(ENV_CONFIGS.PUBLIC_URL + '/index.html')
 )
 
 // An example runtime caching route for requests that aren't handled by the

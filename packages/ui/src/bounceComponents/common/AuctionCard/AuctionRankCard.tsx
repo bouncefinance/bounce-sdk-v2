@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { CenterRow, Row } from '../../../components/Layout'
 import { Box, Grid, MenuItem, Select, Skeleton, styled } from '@mui/material'
-import EmptyAvatar from '@/assets/imgs/auction/default-nft-cover.png'
-import EmptyToken from '@/assets/imgs/auction/token-default.svg'
+import EmptyAvatar from '../../../assets/imgs/auction/default-nft-cover.png'
+import EmptyToken from '../../../assets/imgs/auction/token-default.svg'
 import { H5, H7, H7Gray, SmallText } from '../../../components/Text'
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 import { useRequest } from 'ahooks'
@@ -12,7 +12,7 @@ import { BackedTokenType } from '../../../pages/account/MyTokenOrNFT'
 import EmptyData from '../EmptyData'
 import { getTextFromPoolType } from '../../../api/pool/type'
 import { useNavigate } from 'react-router-dom'
-import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'
+import getAuctionPoolLink from '../../../utils/auction/getAuctionPoolRouteLink'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 import CustomMobileTable from '../../../components/Table/CustomMobileTable'
 
@@ -42,7 +42,7 @@ const StatusLive = styled(Box)`
   text-align: center;
   color: #20994b;
   border-radius: 100px;
-  @media (max-width: 600px) {
+  ../../..media (max-width: 600px) {
     font-size: 10px;
     padding: 2px 6px;
   }
@@ -82,7 +82,7 @@ const Tab = styled(Box)`
     border-radius: 10px 10px 0 0;
   }
 
-  @media (max-width: 600px) {
+  ../../..media (max-width: 600px) {
     padding: 12px 16px;
     height: 45px;
     width: max-content;
@@ -105,6 +105,7 @@ export function AuctionRow(props: any): ReactJSXElement[] {
   const nowTimestamp = Date.now() / 1000
   const status =
     props.openAt > nowTimestamp ? StatusE.upcoming : props.closeAt < nowTimestamp ? StatusE.close : StatusE.live
+  // TODO:
   const url = getAuctionPoolLink(props.id, props.category, props.chainId, props.poolId)
   const isSm = props.isSm
 
@@ -277,33 +278,28 @@ const SkeletonBox = () => {
               }
             }}
           >
-            <Skeleton variant="rectangular" width={'40%'} height={30} />
-            <Skeleton variant="rectangular" width={'40%'} height={30} />
-            <Skeleton variant="rectangular" width={'10%'} height={30} />
+            <Skeleton variant="rectangular" width="40%" height={30} />
+            <Skeleton variant="rectangular" width="40%" height={30} />
+            <Skeleton variant="rectangular" width="10%" height={30} />
           </Box>
           {new Array(5).fill(0).map((i, v) => (
             <Grid key={v} container spacing={40} sx={{ marginTop: '5px' }}>
-              <Grid item xs={isSm ? 8 : 5} display={'flex'} justifyContent={'space-between'} gap={20}>
+              <Grid item xs={isSm ? 8 : 5} display="flex" justifyContent="space-between" gap={20}>
                 <Skeleton variant="rounded" width={40} height={40} sx={{ borderRadius: '8px' }} />
                 <Skeleton
                   variant="rectangular"
-                  width={'calc(100% - 60px)'}
+                  width="calc(100% - 60px)"
                   height={isSm ? 30 : 40}
                   sx={{ borderRadius: '20px' }}
                 />
               </Grid>
               {!isSm && (
-                <Grid item xs={5} display={'flex'} justifyContent={'space-between'} gap={20}>
-                  <Skeleton
-                    variant="rectangular"
-                    width={'100%'}
-                    height={isSm ? 30 : 40}
-                    sx={{ borderRadius: '20px' }}
-                  />
+                <Grid item xs={5} display="flex" justifyContent="space-between" gap={20}>
+                  <Skeleton variant="rectangular" width="100%" height={isSm ? 30 : 40} sx={{ borderRadius: '20px' }} />
                 </Grid>
               )}
-              <Grid item xs={isSm ? 4 : 2} display={'flex'} justifyContent={'space-between'} gap={20}>
-                <Skeleton variant="rectangular" width={'100%'} height={isSm ? 30 : 40} sx={{ borderRadius: '20px' }} />
+              <Grid item xs={isSm ? 4 : 2} display="flex" justifyContent="space-between" gap={20}>
+                <Skeleton variant="rectangular" width="100%" height={isSm ? 30 : 40} sx={{ borderRadius: '20px' }} />
               </Grid>
             </Grid>
           ))}
@@ -391,7 +387,7 @@ export const AuctionRankCard: React.FC = () => {
         sx={{
           alignItems: isSm ? 'flex-start' : 'center',
           justifyContent: isSm ? 'flex-start' : 'space-between',
-          '@media(max-width:862px)': {
+          '../../..media(max-width:862px)': {
             flexWrap: 'nowrap',
             overflowX: 'scroll',
             overflowY: 'hidden',
@@ -412,7 +408,7 @@ export const AuctionRankCard: React.FC = () => {
         )}
         {!isSm && AuctionTabs}
         {isSm && (
-          <Box width={'100%'} sx={{ background: 'white', padding: '12px 12px 0', overflowY: 'hidden' }}>
+          <Box width="100%" sx={{ background: 'white', padding: '12px 12px 0', overflowY: 'hidden' }}>
             {ChainSelect}
           </Box>
         )}

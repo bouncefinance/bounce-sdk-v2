@@ -2,6 +2,7 @@ import { toast } from 'react-toastify'
 import { IResponse } from './type'
 import store from '@/state'
 import { removeLoginInfo, removeUserInfo } from '@/state/users/reducer'
+import { ENV_CONFIGS } from '@/constants/config'
 
 const request = (url: string, options?: any) => {
   // TODO: add request/response interceptors
@@ -56,4 +57,4 @@ const instance = (baseuri: string) => ({
   }
 })
 
-export const ApiInstance = instance(process.env.REACT_APP_REQUEST_BASEURL || '')
+export const ApiInstance = instance(ENV_CONFIGS.REACT_APP_REQUEST_BASEURL || '')

@@ -10,10 +10,11 @@ import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
 import { SUPPORT_NETWORK_CHAIN_IDS, NETWORK_CHAIN_ID } from '@/constants/chain'
 import { getRpcUrl } from './MultiNetworkConnector'
+import { ENV_CONFIGS } from '@/constants/config'
 
-const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
-const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
-const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
+const NETWORK_URL = ENV_CONFIGS.REACT_APP_NETWORK_URL
+const FORMATIC_KEY = ENV_CONFIGS.REACT_APP_FORTMATIC_KEY
+const PORTIS_ID = ENV_CONFIGS.REACT_APP_PORTIS_ID
 
 if (typeof NETWORK_URL === 'undefined') {
   throw new Error(`REACT_APP_NETWORK_URL must be a defined environment variable`)

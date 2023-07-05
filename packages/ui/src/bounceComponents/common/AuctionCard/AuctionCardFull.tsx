@@ -1,22 +1,27 @@
-import AuctionCard, { AuctionHolder, AuctionListItem } from '@/bounceComponents/common/AuctionCard'
-import CopyToClipboard from '@/bounceComponents/common/CopyToClipboard'
-import { VerifyStatus } from '@/api/profile/type'
-import TokenImage from '@/bounceComponents/common/TokenImage'
-import { FixedSwapPool, PoolType } from '@/api/pool/type'
-import { getLabelById, shortenAddress } from '@/utils'
-import { routes } from '@/constants/routes'
+import { AuctionHolder, AuctionListItem, AuctionCard } from '../../../bounceComponents/common/AuctionCard'
+import CopyToClipboard from '../../../bounceComponents/common/CopyToClipboard'
+import { VerifyStatus } from '../../../api/profile/type'
+import TokenImage from '../../../bounceComponents/common/TokenImage'
+import { FixedSwapPool, PoolType } from '../../../api/pool/type'
+import { getLabelById, shortenAddress } from '../../../utils'
+import { routes } from '../../../constants/routes'
 import BigNumber from 'bignumber.js'
 import { Box, Stack, Typography } from '@mui/material'
-import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'
-import { useOptionDatas } from '@/state/configOptions/hooks'
-import { formatNumber } from '@/utils/number'
-import CertifiedTokenImage from '@/components/CertifiedTokenImage'
+import getAuctionPoolLink from '../../../utils/auction/getAuctionPoolRouteLink'
+import { formatNumber } from '../../../utils/number'
+import CertifiedTokenImage from '../../../components/CertifiedTokenImage'
+import { IConfigResponse } from '@/api/user/type'
 
-export default function AuctionCardFull({ auctionPoolItem }: { auctionPoolItem: FixedSwapPool }) {
-  const optionDatas = useOptionDatas()
+export interface IAuctionCardFullProps {
+  auctionPoolItem: FixedSwapPool
+  optionDatas: IConfigResponse
+}
+
+export const AuctionCardFull = ({ auctionPoolItem, optionDatas }: IAuctionCardFullProps) => {
+  // const optionDatas = useOptionDatas()
   return (
     <Box
-      component={'a'}
+      component="a"
       href={getAuctionPoolLink(
         auctionPoolItem.id,
         auctionPoolItem.category,

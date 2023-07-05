@@ -3,7 +3,7 @@ import { ChainId } from '@/constants/chain'
 import { CurrencyAmount } from '@/constants/token'
 import { Post } from '../type'
 import { IReleaseType } from '@/bounceComponents/create-auction-pool/types'
-import { BackedTokenType } from 'pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/pages/account/MyTokenOrNFT'
 
 export enum PoolType {
   'FixedSwap' = 1,
@@ -189,7 +189,7 @@ export interface FixedSwapPoolProp extends FixedSwapPool {
     currencySwappedAmount1: CurrencyAmount | undefined
     currencyCurReleasableAmount?: CurrencyAmount | undefined // current releasable
     currencyCurClaimableAmount?: CurrencyAmount | undefined // current claimable
-    currencyMyReleased?: CurrencyAmount | undefined //current my Released token
+    currencyMyReleased?: CurrencyAmount | undefined // current my Released token
   }
   totalShare?: string | number
   maxPlayere?: string | number
@@ -316,44 +316,44 @@ export interface GetWinnersListParams {
 export type PoolEvent = 'Swapped' | 'CreatorClaimed' | 'Reversed' | 'Bid' | 'Bet'
 
 export interface PoolHistory {
-  //block timestamp
+  // block timestamp
   blockTs: number
 
-  //pool auction type: 1="fixed_swap", 2="dutch", 3="lottery", 4="sealed_bid"
+  // pool auction type: 1="fixed_swap", 2="dutch", 3="lottery", 4="sealed_bid"
   category: number
 
-  //chain id, offered by backend api
+  // chain id, offered by backend api
   chainId: number
 
-  //event name: Swapped,Reversed
+  // event name: Swapped,Reversed
   event: PoolEvent
 
-  //activity id in db
+  // activity id in db
   id: number
 
-  //pool id in contract, in decimal
+  // pool id in contract, in decimal
   poolId: string
 
-  //user regreted or not
+  // user regreted or not
   regreted: boolean
 
-  //buyer wallet address
+  // buyer wallet address
   requestor: string
 
-  //token sold (token0) amount, in decimal.
+  // token sold (token0) amount, in decimal.
   token0Amount: string
 
   token0Decimals: string
 
-  //token sold (token0) symbol
+  // token sold (token0) symbol
   token0Symbol: string
 
-  //token sold (token0) total volume. unit is USD. calculated by price of token 1
+  // token sold (token0) total volume. unit is USD. calculated by price of token 1
   token0Volume: number
 
   token1Amount?: string
 
-  //tx hash
+  // tx hash
   txHash: string
 
   avatar: string

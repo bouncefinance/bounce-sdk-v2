@@ -6,6 +6,7 @@ import OMNIUrl from '@/assets/svg/omni_logo.svg'
 import ZkevmSrc from '../assets/images/zkevm_logo.png'
 import ZkSyncSrc from '../assets/images/zksync_logo.png'
 import scrollLogo from '../assets/images/scroll_logo.png'
+import { ENV_CONFIGS } from './config'
 
 export function numberToHex(number: number) {
   return '0x' + new BigNumberjs(number).toString(16)
@@ -47,13 +48,12 @@ export enum ChainId {
   PALM = 11297108109
 }
 
-console.log('🚀 ~ import.meta.env:', import.meta.env)
-export const NETWORK_CHAIN_ID: ChainId = import.meta.env.REACT_APP_CHAIN_ID
-  ? parseInt(import.meta.env.REACT_APP_CHAIN_ID)
+export const NETWORK_CHAIN_ID: ChainId = ENV_CONFIGS.REACT_APP_CHAIN_ID
+  ? parseInt(ENV_CONFIGS.REACT_APP_CHAIN_ID)
   : ChainId.BSC
 
-export const SUPPORT_NETWORK_CHAIN_IDS: ChainId[] = import.meta.env.REACT_APP_CHAIN_IDS
-  ? import.meta.env.REACT_APP_CHAIN_IDS.split(',').map(v => Number(v) as ChainId)
+export const SUPPORT_NETWORK_CHAIN_IDS: ChainId[] = ENV_CONFIGS.REACT_APP_CHAIN_IDS
+  ? ENV_CONFIGS.REACT_APP_CHAIN_IDS.split(',').map(v => Number(v) as ChainId)
   : [ChainId.BSC]
 
 export const SUPPORTED_NETWORKS: {

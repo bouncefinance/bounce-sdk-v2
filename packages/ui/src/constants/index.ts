@@ -3,6 +3,7 @@ import { Currency } from './token'
 import { OKXWalletConnector, injected, walletconnect, walletlink } from '../connectors'
 import JSBI from 'jsbi'
 import { ChainId } from './chain'
+import { ENV_CONFIGS } from './config'
 
 // used to ensure the user doesn't send so much ETH so they end up with <.01
 export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 ETH
@@ -154,16 +155,16 @@ export const BLOCKED_ADDRESSES: string[] = [
   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C'
 ]
 
-export const IS_TEST_ENV = !!Number(process.env.REACT_APP_IS_TEST_ENV)
+export const IS_TEST_ENV = !!Number(ENV_CONFIGS.REACT_APP_IS_TEST_ENV)
 
 export const NULL_BYTES = '0x0000000000000000000000000000000000000000000000000000000000000000'
 
 export const FIXED_SWAP_ERC20_ADDRESSES: { [chainId in ChainId]: string } = {
   [ChainId.MAINNET]: '0x9e2C12D9240BF267fbeBD510d47Ac3AbD4D9d9ee',
-  [ChainId.GÖRLI]: process.env.REACT_APP_GOERLI_FIXED_SWAP_ERC20_ADDRESS || '',
+  [ChainId.GÖRLI]: ENV_CONFIGS.REACT_APP_GOERLI_FIXED_SWAP_ERC20_ADDRESS || '',
   [ChainId.OPTIMISM]: '0x94aCe08a344efa23Ac118AA94A66A8D699E8a1A1',
   [ChainId.CRONOS]: '',
-  [ChainId.BSC]: process.env.REACT_APP_BSC_FIXED_SWAP_ERC20_ADDRESS || '',
+  [ChainId.BSC]: ENV_CONFIGS.REACT_APP_BSC_FIXED_SWAP_ERC20_ADDRESS || '',
   [ChainId.OKEX]: '0x167544766d084a048d109ad0e1d95b19198c5af1',
   [ChainId.BSCTEST]: '',
   [ChainId.OMNI_TESTNET]: '0x94aCe08a344efa23Ac118AA94A66A8D699E8a1A1',
@@ -183,7 +184,7 @@ export const FIXED_SWAP_ERC20_ADDRESSES: { [chainId in ChainId]: string } = {
   [ChainId.DOGECHAIN]: '0x4B105D426aE2dD0F5bBAF58e4f4aD7464A55a376',
   [ChainId.KAVA]: '0x94aCe08a344efa23Ac118AA94A66A8D699E8a1A1',
   [ChainId.FUSION]: '',
-  [ChainId.ARBITRUM]: process.env.REACT_APP_ARBITRUM_FIXED_SWAP_ERC20_ADDRESS || '',
+  [ChainId.ARBITRUM]: ENV_CONFIGS.REACT_APP_ARBITRUM_FIXED_SWAP_ERC20_ADDRESS || '',
   [ChainId.CELO]: '0x94aCe08a344efa23Ac118AA94A66A8D699E8a1A1',
   [ChainId.AVALANCHE]: '0x853C97d50604f4C5097D736b2C8B5A5aF15b3C02',
   [ChainId.SEPOLIA]: '0x73282A63F0e3D7e9604575420F777361ecA3C86A',
@@ -198,7 +199,7 @@ export const FIXED_SWAP_NFT_CONTRACT_ADDRESSES: { [chainId in ChainId]: string }
   [ChainId.GÖRLI]: '',
   [ChainId.OPTIMISM]: '',
   [ChainId.CRONOS]: '',
-  [ChainId.BSC]: process.env.REACT_APP_BSC_FIXED_SWAP_NFT_ADDRESS || '',
+  [ChainId.BSC]: ENV_CONFIGS.REACT_APP_BSC_FIXED_SWAP_NFT_ADDRESS || '',
   [ChainId.OKEX]: '',
   [ChainId.BSCTEST]: '',
   [ChainId.KLAYTN]: '',
@@ -253,7 +254,7 @@ export const RANDOM_SELECTION_CONTRACT_ADDRESSES: { [chainId in ChainId]: string
   [ChainId.ARBITRUM]: '',
   [ChainId.CELO]: '',
   [ChainId.AVALANCHE]: '0x92f742a243904818e9167725eC3B7b992f8eeB2E',
-  [ChainId.SEPOLIA]: process.env.REACT_APP_RANDOM_SELECTION_ADDRESS || '',
+  [ChainId.SEPOLIA]: ENV_CONFIGS.REACT_APP_RANDOM_SELECTION_ADDRESS || '',
   [ChainId.AUROEA]: '',
   [ChainId.HARMONY]: '',
   [ChainId.SCROLL_ALPHA]: '',

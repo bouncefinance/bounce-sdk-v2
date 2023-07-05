@@ -7,7 +7,7 @@ import EmptyImg from '@/assets/imgs/auction/empty-avatar.svg'
 import { useRequest } from 'ahooks'
 import { getActiveUsers } from '../../../api/market'
 import { useNavigate } from 'react-router-dom'
-import { routes } from '@/constants/routes'
+import { routes } from '../../../constants/routes'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 
 interface IAuctionActiveCard {

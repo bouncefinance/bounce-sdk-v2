@@ -24,12 +24,18 @@
     "allowSyntheticDefaultImports": true,
     "rootDir": "./src",
     "baseUrl": "./",
+    "outDir": "lib",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "declarationDir": "lib",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
   },
   "exclude": ["node_modules"],
   "include": ["src"]
