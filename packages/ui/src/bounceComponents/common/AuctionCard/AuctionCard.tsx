@@ -13,11 +13,14 @@ import { withBounceTheme } from '../../../themes'
 
 export type IAuctionCardProps = {
   /**
-   * @description pool id
+   * pool id
    */
   poolId: string
   status: PoolStatus
   dateStr: number
+  /**
+   * auction title
+   */
   title: string
   holder?: React.ReactNode
   progress?: Omit<IAuctionProgressProps, 'status'>

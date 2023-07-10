@@ -1,0 +1,34 @@
+{
+	"name": "docs-vite",
+	"version": "1.0.2",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "cross-env SHOW_ALL_COMPONENT_DEMOS=true vite dev",
+		"build": "rimraf dist && vite build",
+		"ssr": "rimraf dist && vite-pages ssr && serve dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@testpkgs/bounce-ui": "workspace:^",
+		"antd": "^5.6.4",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.13.0"
+	},
+	"devDependencies": {
+		"@mdx-js/react": "^2.3.0",
+		"@types/node": "^20.3.3",
+		"@types/react": "^18.2.14",
+		"@vitejs/plugin-react": "^4.0.1",
+		"globby": "^13.2.1",
+		"rimraf": "^5.0.1",
+		"serve": "^14.2.0",
+		"vite": "^4.3.9",
+		"vite-pages-theme-doc": "^4.1.5",
+		"vite-plugin-inspect": "^0.7.32",
+		"vite-plugin-react-pages": "^4.1.3"
+	}
+}

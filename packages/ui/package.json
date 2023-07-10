@@ -27,6 +27,7 @@
     "@binance-chain/bsc-connector": "^1.0.0",
     "@changesets/cli": "^2.26.2",
     "@craco/craco": "^7.1.0",
+    "@mdx-js/react": "^2.3.0",
     "@popperjs/core": "^2.11.5",
     "@reduxjs/toolkit": "^1.8.3",
     "@rollup/plugin-typescript": "^11.1.2",

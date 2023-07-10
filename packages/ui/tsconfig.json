@@ -35,7 +35,10 @@
         "transform": "typescript-transform-paths",
         "afterDeclarations": true
       }
-    ]
+    ],
+    "paths": {
+      "@bouncefinance/ui": ["./src"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["src"]
