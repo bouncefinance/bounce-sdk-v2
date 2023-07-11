@@ -51,11 +51,6 @@ const baseUnoConfig: UserConfig = defineConfig({
 	shortcuts: {
 		// shortcuts to multiple utilities
 		'flex-center': 'flex justify-center items-center',
-		'common-border': 'b b-solid b-#e7e7e7',
-		'container-lg': 'rounded-5 p-5',
-		'container-md': 'rounded-3 p-4',
-		'container-sm': 'rounded-2.5 p-2',
-		'common-label': 'text-2.5 c-#838385',
 	},
 	theme: {
 		colors: {

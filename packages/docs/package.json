@@ -44,8 +44,8 @@
     ]
   },
   "dependencies": {
-    "@mui/material": "^5.10.8",
-    "@testpkgs/bounce-ui": "workspace:^"
+    "@bouncefinance/ui": "workspace:^",
+    "@mui/material": "^5.10.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",

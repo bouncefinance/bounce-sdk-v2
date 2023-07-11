@@ -9,10 +9,7 @@ export default defineConfig({
   },
   // clickToComponent: { editor: 'vscode' },
   chainWebpack(config) {
-    config.resolve.alias.set(
-      '@testpkgs/bounce-ui',
-      resolve(__dirname, '../ui'),
-    );
+    config.resolve.alias.set('@bouncefinance/ui', resolve(__dirname, '../ui'));
     return config;
   },
   locales: [

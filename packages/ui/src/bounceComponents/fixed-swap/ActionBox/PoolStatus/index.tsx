@@ -39,7 +39,8 @@ const PoolStatusBox = ({
       return (
         <Box
           sx={{
-            display: 'inline-block',
+            display: 'flex',
+            alignItems: 'center',
             px: 12,
             py: 4,
             bgcolor: '#E6E6E6',
@@ -53,7 +54,16 @@ const PoolStatusBox = ({
 
     case PoolStatus.Live:
       return (
-        <Box style={{ display: 'inline-block', padding: '4px 8px', background: '#D4F5DE', borderRadius: 20, ...style }}>
+        <Box
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '4px 8px',
+            background: '#D4F5DE',
+            borderRadius: 20,
+            ...style
+          }}
+        >
           <Typography
             variant="body1"
             color="#259C4A"
@@ -89,8 +99,9 @@ const PoolStatusBox = ({
           {!hiddenStatus && (
             <span
               style={{
-                display: 'inline-block',
                 padding: '4px 8px',
+                display: 'flex',
+                alignItems: 'center',
                 background: '#000000',
                 borderRadius: 20,
                 textOverflow: 'ellipsis',

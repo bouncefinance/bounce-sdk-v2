@@ -16,8 +16,7 @@
 		"preserveWatchOutput": true,
 		"baseUrl": ".",
 		"paths": {
-			"~pages/*": ["./pages/*"],
-			"@bouncefinance/ui": ["../ui"]
+			"@/*": ["src/*"]
 		}
 	}
 }

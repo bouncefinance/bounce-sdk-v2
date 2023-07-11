@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { createTheme, defaultSideNavs, useThemeCtx } from 'vite-pages-theme-doc'
 
 import Component404 from './404'
-import { useNavigate } from 'react-router-dom'
-import { Button } from 'antd'
+import { Button, Spin } from 'antd'
+import 'uno.css'
+import '../styles/index.less'
 
 export default createTheme({
 	logoLink(ctx) {
@@ -14,14 +15,17 @@ export default createTheme({
 		return prefix
 	},
 	logo: (
-		<a style={{ fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+		<div className="flex gap-2 items-center">
 			<img
+				className="w-6"
 				src="https://www.gitbook.com/cdn-cgi/image/width=40,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F841106785-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FNyEMlVfYL7xZhAA9xrd7%252Ficon%252F7CzH9xDxIQqjOJkvzUug%252Ftoken.png%3Falt%3Dmedia%26token%3De5ca3bbb-e96a-4574-b8c4-901cfc9c51d9"
-				style={{ width: '24px' }}
 			/>
-			Bounce Finance SDK
-		</a>
+			<span className="text-5 hidden md:block">Bounce Finance SDK</span>
+		</div>
 	),
+	AppWrapper: (props?: PropsWithChildren) => {
+		return props?.children
+	},
 	i18n: {
 		defaultLocale: 'en',
 		topBarLocaleSelector: true,
@@ -133,7 +137,7 @@ export default createTheme({
 	},
 	sideNavs: (ctx) => {
 		// dont render side menu in home page
-		if (ctx.loadState.routePath === '/') return null
+		if (ctx.loadState.routePath === '/' || ctx.loadState.routePath === '/zh') return null
 		return defaultSideNavs(ctx, {
 			groupConfig: {
 				components: {
@@ -154,4 +158,9 @@ export default createTheme({
 		})
 	},
 	Component404,
+	ComponentLoading: () => (
+		<div className="flex-center pt-20">
+			<Spin size="large" />
+		</div>
+	),
 })

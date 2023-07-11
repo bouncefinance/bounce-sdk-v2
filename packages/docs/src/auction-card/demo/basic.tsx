@@ -1,8 +1,4 @@
-import {
-  AuctionCard,
-  AuctionHolder,
-  AuctionListItem,
-} from '@testpkgs/bounce-ui';
+import { AuctionCard, AuctionHolder, AuctionListItem } from '@bouncefinance/ui';
 import React from 'react';
 
 export default () => {

@@ -1,7 +1,7 @@
-# @testpkgs/bounce-ui
+# @bouncefinance/ui
 
-[![NPM version](https://img.shields.io/npm/v/@testpkgs/bounce-ui.svg?style=flat)](https://npmjs.org/package/@testpkgs/bounce-ui)
-[![NPM downloads](http://img.shields.io/npm/dm/@testpkgs/bounce-ui.svg?style=flat)](https://npmjs.org/package/@testpkgs/bounce-ui)
+[![NPM version](https://img.shields.io/npm/v/@bouncefinance/ui.svg?style=flat)](https://npmjs.org/package/@bouncefinance/ui)
+[![NPM downloads](http://img.shields.io/npm/dm/@bouncefinance/ui.svg?style=flat)](https://npmjs.org/package/@bouncefinance/ui)
 
 bounce sdk
 

@@ -5,14 +5,14 @@
 	"type": "module",
 	"scripts": {
 		"dev": "cross-env SHOW_ALL_COMPONENT_DEMOS=true vite dev",
-		"build": "rimraf dist && vite build",
+		"build": "pnpm -F @bouncefinance/ui build && rimraf dist && vite build",
 		"ssr": "rimraf dist && vite-pages ssr && serve dist"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@testpkgs/bounce-ui": "workspace:^",
+		"@bouncefinance/ui": "workspace:^",
 		"antd": "^5.6.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
