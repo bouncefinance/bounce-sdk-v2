@@ -6,16 +6,21 @@
   "license": "",
   "homepage": "/",
   "private": false,
-  "main": "lib/index.es.js",
-  "types": "lib/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "exports": {
     ".": {
-      "import": "./lib/index.es.js",
-      "require": "./lib/index.es.js",
-      "types": "./lib/index.d.ts"
+      "development": {
+        "import": "./lib/index.es.js",
+        "require": "./src/index.ts",
+        "types": "./src/index.ts"
+      },
+      "default": {
+        "import": "./lib/index.es.js",
+        "require": "./lib/index.es.js",
+        "types": "./lib/index.d.ts"
+      }
     },
     "./*": "./lib/*"
   },

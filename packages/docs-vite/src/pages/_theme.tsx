@@ -12,7 +12,7 @@ export default createTheme({
 		if (!prefix || prefix === 'en') {
 			return '/'
 		}
-		return prefix
+		return '/' + prefix
 	},
 	logo: (
 		<div className="flex gap-2 items-center">

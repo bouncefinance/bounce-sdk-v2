@@ -4,8 +4,9 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "cross-env SHOW_ALL_COMPONENT_DEMOS=true vite dev",
-		"build": "pnpm -F @bouncefinance/ui build && rimraf dist && vite build",
+		"dev": "cross-env SHOW_ALL_COMPONENT_DEMOS=false vite dev",
+		"build:pure": "vite build",
+		"build": "pnpm -F @bouncefinance/ui build && pnpm build:pure",
 		"ssr": "rimraf dist && vite-pages ssr && serve dist"
 	},
 	"keywords": [],
@@ -24,8 +25,6 @@
 		"@types/react": "^18.2.14",
 		"@vitejs/plugin-react": "^4.0.1",
 		"globby": "^13.2.1",
-		"rimraf": "^5.0.1",
-		"serve": "^14.2.0",
 		"vite": "^4.3.9",
 		"vite-pages-theme-doc": "^4.1.5",
 		"vite-plugin-inspect": "^0.7.32",
