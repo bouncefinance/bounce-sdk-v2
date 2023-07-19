@@ -1,7 +1,13 @@
-import { AuctionCard, AuctionHolder, AuctionListItem } from '@bouncefinance/ui'
+import {
+	AuctionCard,
+	AuctionHolder,
+	AuctionListItem,
+	AuctionCardProps,
+	PoolStatus,
+} from '@bouncefinance/ui'
 
 export default () => {
-	const props = {
+	const props: AuctionCardProps = {
 		categoryName: 'Dutch Auction',
 		claimAt: 1688436000,
 		closeAt: 1688356800,
@@ -25,25 +31,28 @@ export default () => {
 			sold: '0',
 			supply: '10000000000000000000',
 		},
-		status: 4,
+		status: PoolStatus.Cancelled,
 		style: {
 			minWidth: 'unset',
 		},
 		title: 'cz2eth2',
 		whiteList: 'Public',
+		chainConfigInBackend: {
+			chainName: 'Sepolia',
+			chain_type: 1,
+			ethChainId: 11155111,
+			id: 5,
+			shortName: 'sepolia',
+		},
+		style: { width: '312px', minWidth: 'unset' },
 	}
 	return (
-		<AuctionCard
-			{...props}
-			isCreator
-			chainConfigInBackend={{
-				chainName: 'Sepolia',
-				chain_type: 1,
-				ethChainId: 11155111,
-				id: 5,
-				shortName: 'sepolia',
-			}}
-			style={{ width: '312px', minWidth: 'unset' }}
-		/>
+		<div className="flex flex-wrap gap-5">
+			<AuctionCard {...props} isCreator />
+			<AuctionCard {...props} {...{ status: PoolStatus.Closed }} />
+			<AuctionCard {...props} {...{ status: PoolStatus.Finish }} />
+			<AuctionCard {...props} {...{ status: PoolStatus.Live }} />
+			<AuctionCard {...props} {...{ status: PoolStatus.Upcoming }} />
+		</div>
 	)
 }

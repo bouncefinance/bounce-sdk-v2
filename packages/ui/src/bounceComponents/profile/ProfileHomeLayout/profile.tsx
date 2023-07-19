@@ -15,7 +15,7 @@ import Linkin from '@/assets/socialLinksIcon/linkin.svg'
 import Twitter from '@/assets/socialLinksIcon/twitter-circle.svg'
 import Website from '@/assets/socialLinksIcon/website.svg'
 import { ReactComponent as VerifyIcon } from '@/assets/imgs/user/profile-verify.svg'
-import { BackedTokenType } from '../../../pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/enums'
 import { getUserPoolCount } from '@/api/user'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 

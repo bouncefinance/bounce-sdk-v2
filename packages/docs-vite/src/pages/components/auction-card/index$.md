@@ -12,4 +12,4 @@ Basic
 
 ## API
 
-<TsInfo src="@bouncefinance/ui/index.d.ts" name="IAuctionCardProps" />
+<TsInfo src="@bouncefinance/ui/index.d.ts" name="AuctionCardProps" />

@@ -2,7 +2,7 @@ import { useRequest } from 'ahooks'
 import { getUserPoolsTokenParticipant, getUserPoolsTokenCreated } from '@/api/account'
 import { DashboardQueryType } from '@/api/account/types'
 import { FixedSwapPool, PoolType } from '@/api/pool/type'
-import { BackedTokenType } from '@/pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/enums'
 
 export function useUserPoolsTokenCreated(
 	address: string | undefined,

@@ -1,6 +1,6 @@
 import { MenuItem, Select } from '@mui/material'
 import { PoolType } from '@/api/pool/type'
-import { BackedTokenType } from '@/pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/enums'
 import { useMemo } from 'react'
 import { TokenType as ERCType } from '@/bounceComponents/create-auction-pool/types'
 export default function AuctionTypeSelect({

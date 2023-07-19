@@ -16,8 +16,7 @@ import Stepper from '@/bounceComponents/create-auction-pool/Stepper'
 import { isSupportedAuctionType } from '@/constants/auction'
 
 import useBreakpoint from '@/hooks/useBreakpoint'
-import { Erc1155Pool, Erc20Pool, Erc721Pool } from './pools'
-import RandomSelection from '@/pages/auction/create-auction-pool/RandomSelection'
+import { Erc1155Pool, Erc20Pool, Erc721Pool, RandomSelection } from './pools'
 import { withBounceTheme } from '@/themes'
 import { useActiveWeb3React } from '@/hooks'
 

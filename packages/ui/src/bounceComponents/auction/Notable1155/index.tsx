@@ -11,7 +11,7 @@ import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
 import { CenterRow, Row } from '../../../components/Layout'
 import AuctionTypeSelect from '../../common/AuctionTypeSelect'
-import { BackedTokenType } from '../../../pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/enums'
 import EmptyData from '@/bounceComponents/common/EmptyData'
 import { HomeNFTSkeletonCard } from '../Notable721'
 import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'
@@ -58,10 +58,10 @@ export const Notable1155 = (props: Notable1155Props) => {
   return (
     <Box sx={{ background: 'white', padding: '80px 0 100px' }}>
       <Container>
-        <H3 justifyContent={'center'}>Notable Auctions</H3>
+        <H3 justifyContent="center">Notable Auctions</H3>
         <CenterRow
           mb={33}
-          justifyContent={'space-between'}
+          justifyContent="space-between"
           mt={40}
           p={16}
           sx={{ flexDirection: isSm ? 'column' : 'row', alignItems: isSm ? 'flex-start' : 'center' }}

@@ -1,6 +1,6 @@
 ---
 title: Create Auction Pool 创建拍卖池
-subGroup: general
+subGroup: 常规
 ---
 
 # Create Auction Pool 创建拍卖池

@@ -1,6 +1,8 @@
 export * from './components'
 export * from './bounceComponents'
 export * from './Provider'
+export { PoolStatus } from './api/pool'
+export { BackedTokenType } from './enums'
 
 // import { StrictMode } from 'react'
 // import { createRoot } from 'react-dom/client'

@@ -1,5 +1,5 @@
 import { PoolType } from '@/api/pool/type'
-import { BackedTokenType } from '@/pages/account/MyTokenOrNFT'
+import { BackedTokenType } from '@/enums'
 
 export default function getBackedTokenType(category: PoolType) {
 	if ([PoolType.ENGLISH_AUCTION_NFT, PoolType.fixedSwapNft].includes(category)) {
