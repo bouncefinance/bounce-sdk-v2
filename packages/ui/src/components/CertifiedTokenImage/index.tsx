@@ -1,7 +1,7 @@
 import CoingeckoSVG from '@/assets/imgs/chains/coingecko.svg'
 import ErrorSVG from '@/assets/imgs/icon/error_outline.svg'
 import { ChainId } from '@/constants/chain'
-import { useCertifiedTokenAddress } from 'hooks/useCertifiedTokenAddress'
+import { useCertifiedTokenAddress } from '@/hooks/useCertifiedTokenAddress'
 import Image from '@/components/Image'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import useChainConfigInBackend from '@/bounceHooks/web3/useChainConfigInBackend'

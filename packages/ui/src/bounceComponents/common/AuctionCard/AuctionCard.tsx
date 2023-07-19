@@ -1,15 +1,15 @@
-import { Card, CardHeader, Chip, Stack, ThemeProvider, Typography, createTheme } from '@mui/material'
-import React, { FC } from 'react'
+import { Card, CardHeader, Chip, Stack, Typography } from '@mui/material'
+import React, { CSSProperties, ReactNode } from 'react'
 import { useCountDown } from 'ahooks'
 import moment from 'moment'
 import Image from '../../../components/Image'
 import { AuctionProgress, IAuctionProgressProps } from './AuctionProgress'
 import styles from './styles'
-import PoolStatusBox from '../../../bounceComponents/fixed-swap/ActionBox/PoolStatus'
-import { PoolStatus } from '../../../api/pool/type'
-import { ChainId, ChainListMap } from '../../../constants/chain'
-import { ChainInfoOpt } from '../../../api/user/type'
-import { withBounceTheme } from '../../../themes'
+import PoolStatusBox from '@/bounceComponents/fixed-swap/ActionBox/PoolStatus'
+import { PoolStatus } from '@/api/pool/type'
+import { ChainId, ChainListMap } from '@/constants/chain'
+import { ChainInfoOpt } from '@/api/user/type'
+import { withBounceTheme } from '@/themes'
 
 export type IAuctionCardProps = {
   /**
@@ -22,9 +22,9 @@ export type IAuctionCardProps = {
    * auction title
    */
   title: string
-  holder?: React.ReactNode
+  holder?: ReactNode
   progress?: Omit<IAuctionProgressProps, 'status'>
-  listItems?: React.ReactNode
+  listItems?: ReactNode
   claimAt: number
   closeAt: number
   categoryName: string
@@ -33,7 +33,7 @@ export type IAuctionCardProps = {
   participantClaimed?: boolean
   isCreator?: boolean
   whiteList: string
-  style?: React.CSSProperties | undefined
+  style?: CSSProperties
   chainConfigInBackend?: ChainInfoOpt | null
 }
 

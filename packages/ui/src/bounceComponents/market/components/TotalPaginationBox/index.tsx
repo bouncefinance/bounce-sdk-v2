@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import { routes } from '@/constants/routes'
 import { useShowLoginModal, useUserInfo } from '@/state/users/hooks'
 import { useNavigate } from 'react-router-dom'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 
 export type ITotalPaginationBoxProps = {
   total: number

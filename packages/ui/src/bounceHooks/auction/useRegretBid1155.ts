@@ -1,6 +1,6 @@
 import { FixedSwapNFTPoolProp } from '@/api/pool/type'
-import { useActiveWeb3React } from 'hooks'
-import { useFixedSwapNftContract } from 'hooks/useContract'
+import { useActiveWeb3React } from '@/hooks'
+import { useFixedSwapNftContract } from '@/hooks/useContract'
 import { useCallback } from 'react'
 import { useTransactionAdder, useUserHasSubmittedRecords } from '@/state/transactions/hooks'
 import { calculateGasMargin } from '@/utils'

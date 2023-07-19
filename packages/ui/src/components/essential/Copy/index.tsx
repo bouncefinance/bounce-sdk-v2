@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
-import useCopyClipboard from 'hooks/useCopyClipboard'
+import useCopyClipboard from '@/hooks/useCopyClipboard'
 import { ReactComponent as CopySvg } from '@/assets/svg/account/copy-icon.svg'
 import Tooltip from '@/bounceComponents/common/Tooltip'
 

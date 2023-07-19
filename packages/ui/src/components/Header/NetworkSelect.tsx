@@ -1,11 +1,11 @@
 import { MenuItem, Box } from '@mui/material'
 import LogoText from '@/components/LogoText'
 import Select from '@/components/Select/Select'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { ChainList, ChainListMap } from '@/constants/chain'
-import useBreakpoint from 'hooks/useBreakpoint'
+import useBreakpoint from '@/hooks/useBreakpoint'
 import Image from '@/components/Image'
-import { useSwitchNetwork } from 'hooks/useSwitchNetwork'
+import { useSwitchNetwork } from '@/hooks/useSwitchNetwork'
 
 export default function NetworkSelect() {
   const { chainId } = useActiveWeb3React()

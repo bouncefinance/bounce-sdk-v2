@@ -3,8 +3,8 @@ import { Box } from '@mui/material'
 import Header from './Header'
 import ActionBlock from './ActionBlock'
 import { FixedSwapPoolProp } from '@/api/pool/type'
-import { useIsJoinedRandomSelectionPool } from 'hooks/useCreateRandomSelectionPool'
-import { useActiveWeb3React } from 'hooks'
+import { useIsJoinedRandomSelectionPool } from '@/hooks/useCreateRandomSelectionPool'
+import { useActiveWeb3React } from '@/hooks'
 
 const UserActionBox2 = ({
   poolInfo,

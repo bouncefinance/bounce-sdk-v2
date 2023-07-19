@@ -1,0 +1,36 @@
+// 去掉用来占位的元素 给右边的元素ml-a来代替
+.vp-local-flexSpace {
+	@apply hidden!;
+}
+.vp-local-navCtn {
+	@apply ml-a;
+}
+// 适应移动端
+.vp-local-searchArea {
+	@apply min-w-0 flex-1!;
+	.vp-local-search-box {
+		.vp-antd-select {
+			@apply !w-unset;
+		}
+	}
+}
+// 适应移动端
+.vp-local-layout .vp-local-header .vp-local-triggerCtn .vp-local-trigger {
+	@apply !mx-2;
+}
+@sceen md {
+	.vp-local-layout .vp-local-header .vp-local-triggerCtn .vp-local-trigger {
+		@apply !mx-5;
+	}
+}
+
+// 适应移动端
+.vp-antd-table-content,
+.vp-local-demo {
+	@apply overflow-x-auto;
+}
+// 覆盖插件样式
+.vp-local-layout .vp-local-body .vp-local-content img {
+	max-width: 100%;
+	max-height: 100%;
+}

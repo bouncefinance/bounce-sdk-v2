@@ -1,7 +1,7 @@
 import SwitchNetworkButton from '../../SwitchNetworkButton'
 import { FixedSwapPoolProp, PoolStatus } from '@/api/pool/type'
 import { useCreatorClaim } from '@/bounceHooks/auction/useRandomSelectionCreatorClaim'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCallback, useMemo } from 'react'
 import useIsAllRandomSelectionTokenSwapped from '@/bounceHooks/auction/useIsAllRandomSelectionTokenSwapped'
 import { LoadingButton } from '@mui/lab'

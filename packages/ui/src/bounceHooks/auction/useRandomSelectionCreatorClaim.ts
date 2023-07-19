@@ -2,8 +2,8 @@ import { useCallback } from 'react'
 import { calculateGasMargin } from '@/utils'
 import { TransactionResponse, TransactionReceipt } from '@ethersproject/providers'
 import { useTransactionAdder, useUserHasSubmittedRecords } from '@/state/transactions/hooks'
-import { useActiveWeb3React } from 'hooks'
-import { useRandomSelectionERC20Contract } from 'hooks/useContract'
+import { useActiveWeb3React } from '@/hooks'
+import { useRandomSelectionERC20Contract } from '@/hooks/useContract'
 
 export function useCreatorClaim(poolId: number | string, name: string, contract?: string) {
   const { account } = useActiveWeb3React()

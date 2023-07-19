@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Box, Stack, styled, SxProps } from '@mui/material'
-import useBreakpoint from 'hooks/useBreakpoint'
+import useBreakpoint from '@/hooks/useBreakpoint'
 
 // import Temp1 from '@/assets/imgs/auction/1.png'
 // import Temp2 from '@/assets/imgs/auction/3.png'

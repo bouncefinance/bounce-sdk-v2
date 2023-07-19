@@ -20,7 +20,7 @@ import { useUserInfo } from '@/state/users/hooks'
 import { useNavigate } from 'react-router-dom'
 import { routes } from '@/constants/routes'
 import DefaultAvatarSVG from '@/assets/imgs/profile/yellow_avatar.svg'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { PoolInfoProp } from '../type'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 

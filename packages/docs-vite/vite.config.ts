@@ -79,6 +79,7 @@ export default defineConfig({
 		// which will result in error
 		noExternal: [],
 	},
+	server: { port: 2000 },
 	build: {
 		minify: false,
 		rollupOptions: {

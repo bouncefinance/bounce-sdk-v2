@@ -11,7 +11,7 @@ import CopyToClipboard from '@/bounceComponents/common/CopyToClipboard'
 import { shortenAddress } from '@/utils'
 import { FixedSwapPoolProp } from '@/api/pool/type'
 import { addTokenToWallet } from '@/utils/addTokenToWallet'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import CertifiedTokenImage from '@/components/CertifiedTokenImage'
 import useBreakpoint from '../../../../hooks/useBreakpoint'
 

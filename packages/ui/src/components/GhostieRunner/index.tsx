@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import { BounceAnime } from '@/bounceComponents/common/BounceAnime'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useEffect, useState } from 'react'
 import { Unity, useUnityContext } from 'react-unity-webgl'
 import { useUserInfo } from '@/state/users/hooks'

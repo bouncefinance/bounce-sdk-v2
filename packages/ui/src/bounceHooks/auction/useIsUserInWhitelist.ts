@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { PoolType } from '@/api/pool/type'
 import { getUserPermitSign, getUserWhitelistProof } from '@/api/user'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { PoolInfoProp } from '@/bounceComponents/fixed-swap/type'
 import getTokenType from '@/utils/getTokenType'
 import { useUserInfo } from '@/state/users/hooks'

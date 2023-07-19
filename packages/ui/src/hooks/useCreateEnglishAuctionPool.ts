@@ -2,7 +2,7 @@ import { getPoolCreationSignature, getWhitelistMerkleTreeRoot } from '@/api/pool
 import { GetPoolCreationSignatureParams, GetWhitelistMerkleTreeRootParams, PoolType } from '@/api/pool/type'
 import useChainConfigInBackend from '@/bounceHooks/web3/useChainConfigInBackend'
 import { NULL_BYTES } from '../constants'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCallback } from 'react'
 import { useAuctionERC20Currency, useValuesState } from '@/bounceComponents/create-auction-pool/ValuesProvider'
 import { CurrencyAmount } from '@/constants/token'
@@ -12,7 +12,7 @@ import { useTransactionAdder } from '@/state/transactions/hooks'
 import { IReleaseType, ParticipantStatus } from '@/bounceComponents/create-auction-pool/types'
 import { useEnglishAuctionNftContract } from './useContract'
 import { getEventLog } from './useCreateFixedSwapPool'
-import { useERC721MultiOwner } from 'hooks/useNFTTokenBalance'
+import { useERC721MultiOwner } from '@/hooks/useNFTTokenBalance'
 
 interface Params {
   amountTotal0: number

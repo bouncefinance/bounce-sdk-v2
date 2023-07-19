@@ -14,10 +14,10 @@ import FormItem from '@/bounceComponents/common/FormItem'
 import Tooltip from '@/bounceComponents/common/Tooltip'
 import TokenImage from '@/bounceComponents/common/TokenImage'
 import { ChainId } from '@/constants/chain'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { Token } from '@/bounceComponents/fixed-swap/type'
 import NumberInput from '@/bounceComponents/common/NumberInput'
-import useBreakpoint from 'hooks/useBreakpoint'
+import useBreakpoint from '@/hooks/useBreakpoint'
 
 interface FormValues {
   tokenFromAddress: string

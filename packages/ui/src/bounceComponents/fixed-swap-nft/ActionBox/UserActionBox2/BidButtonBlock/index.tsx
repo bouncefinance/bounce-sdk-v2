@@ -8,7 +8,7 @@ import useIsLimitExceeded1155 from '@/bounceHooks/auction/useIsLimit1155Exceeded
 import SwitchNetworkButton from '@/bounceComponents/fixed-swap/SwitchNetworkButton'
 import { FixedSwapPoolParams } from '@/bounceComponents/fixed-swap-nft/MainBlock/UserMainBlock'
 import { useMemo } from 'react'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCurrencyBalance } from '@/state/wallet/hooks'
 import { CurrencyAmount } from '@/constants/token'
 import UpcomingPoolCountdownButton from '@/bounceComponents/fixed-swap/ActionBox/UserActionBox2/BidButtonBlock/UpcomingPoolCountdownButton'

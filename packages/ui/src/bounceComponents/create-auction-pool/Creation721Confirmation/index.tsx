@@ -10,11 +10,11 @@ import TokenImage from '@/bounceComponents/common/TokenImage'
 
 import { ReactComponent as CloseSVG } from '@/assets/imgs/components/close.svg'
 // import { ReactComponent as ZeroIcon } from '@/assets/imgs/auction/zero-icon.svg'
-import { useQueryParams } from 'hooks/useQueryParams'
-import { useActiveWeb3React } from 'hooks'
+import { useQueryParams } from '@/hooks/useQueryParams'
+import { useActiveWeb3React } from '@/hooks'
 import { ChainListMap } from '@/constants/chain'
 import { shortenAddress } from '@/utils'
-import { useCreateEnglishAuctionPool } from 'hooks/useCreateEnglishAuctionPool'
+import { useCreateEnglishAuctionPool } from '@/hooks/useCreateEnglishAuctionPool'
 import {
   hideDialogConfirmation,
   showRequestApprovalDialog,
@@ -24,10 +24,10 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { routes } from '@/constants/routes'
 import useChainConfigInBackend from '@/bounceHooks/web3/useChainConfigInBackend'
-import { useNFTApproveAllCallback } from 'hooks/useNFTApproveAllCallback'
+import { useNFTApproveAllCallback } from '@/hooks/useNFTApproveAllCallback'
 import { ENGLISH_AUCTION_NFT_CONTRACT_ADDRESSES } from '../../../constants'
-import { useSwitchNetwork } from 'hooks/useSwitchNetwork'
-import { ApprovalState } from 'hooks/useApproveCallback'
+import { useSwitchNetwork } from '@/hooks/useSwitchNetwork'
+import { ApprovalState } from '@/hooks/useApproveCallback'
 import { ConfirmationInfoItem, ConfirmationSubtitle } from '../Creation1155Confirmation'
 import { useShowLoginModal } from '@/state/users/hooks'
 import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'

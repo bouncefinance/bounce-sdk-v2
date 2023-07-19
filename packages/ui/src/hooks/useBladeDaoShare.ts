@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useQueryParams } from './useQueryParams'
 import { isAddress } from '@/utils'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { shareAdd } from '@/api/bladeDao'
 
 const sessionStorageBladeDaoShareKey = 'sessionStorageBladeDaoShareKey'

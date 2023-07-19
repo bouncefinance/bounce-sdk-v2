@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { useSwitchNetwork } from 'hooks/useSwitchNetwork'
+import { useSwitchNetwork } from '@/hooks/useSwitchNetwork'
 
 const SwitchNetworkButton = ({ targetChain }: { targetChain: number }) => {
   const switchNetwork = useSwitchNetwork()

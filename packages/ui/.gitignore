@@ -34,4 +34,3 @@ cypress/screenshots
 cypress/fixtures/example.json
 
 lib
-.history

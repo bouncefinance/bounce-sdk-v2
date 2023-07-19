@@ -6,7 +6,7 @@ import Dialog from '@/bounceComponents/common/DialogBase'
 import CopyToClipboard from '@/bounceComponents/common/CopyToClipboard'
 import OpenInNewSVG from '@/assets/imgs/icon/open_in_new.svg'
 import { getEtherscanLink, shortenAddress } from '@/utils'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { Token } from '@/bounceComponents/fixed-swap/type'
 
 const DangerousTokenDialog = create<Token>(selectedToken => {

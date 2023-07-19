@@ -7,7 +7,7 @@ import NumberInput from '@/bounceComponents/common/NumberInput'
 import { formatNumber } from '@/utils/number'
 import { FixedSwapPoolProp } from '@/api/pool/type'
 import { useCurrencyBalance } from '@/state/wallet/hooks'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useMaxSwapAmount1Limit } from '@/bounceHooks/auction/useIsLimitExceeded'
 
 interface BidAmountInputProps {

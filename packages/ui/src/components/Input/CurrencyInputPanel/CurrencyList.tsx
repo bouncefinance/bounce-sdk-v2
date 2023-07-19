@@ -3,7 +3,7 @@ import { FixedSizeList } from 'react-window'
 import { Box, Typography, styled } from '@mui/material'
 import { Currency } from '@/constants/token'
 import { Mode } from './SelectCurrencyModal'
-import useModal from 'hooks/useModal'
+import useModal from '@/hooks/useModal'
 import CurrencyLogo from '@/components/essential/CurrencyLogo'
 
 interface Props {

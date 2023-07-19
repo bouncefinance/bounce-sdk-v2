@@ -6,7 +6,7 @@ import { UserBidAction } from './ActionBlock'
 import { checkIfAllocationLimitExist } from '@/utils/auction'
 import { FixedSwapPoolProp } from '@/api/pool/type'
 import { useCurrencyBalance } from '@/state/wallet/hooks'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 
 interface BidProps {
   action: UserBidAction

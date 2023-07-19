@@ -23,6 +23,7 @@ node_modules
 # cache
 .history
 .rollup.cache
+.tsbuildinfo
 
 # outputs
 dist

@@ -6,7 +6,7 @@ import { ReactComponent as TwitterSVG } from '@/assets/imgs/auction/round-icon-t
 import BoxLayout from './BoxLayout/BoxLayout'
 // import { ACCOUNT_TYPE } from '@/api/user/type'
 import { bindThirdpartGetUrlOfTwitter } from '@/api/user'
-import { useIsWindowFocus } from 'hooks/useIsWindowVisible'
+import { useIsWindowFocus } from '@/hooks/useIsWindowVisible'
 import { useRefreshUserInfoCallback } from '@/state/users/hooks'
 import useBreakpoint from '../../../../../hooks/useBreakpoint'
 // import { useBindThirdPart } from '@/bounceHooks/user/useBindThirdPart'

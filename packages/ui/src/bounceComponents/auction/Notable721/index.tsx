@@ -14,7 +14,7 @@ import AuctionTypeSelect from '../../common/AuctionTypeSelect'
 import { BackedTokenType } from '../../../pages/account/MyTokenOrNFT'
 import EmptyData from '@/bounceComponents/common/EmptyData'
 import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'
-import useBreakpoint from 'hooks/useBreakpoint'
+import useBreakpoint from '@/hooks/useBreakpoint'
 import useResizeView from '@/utils/useResizeView'
 import { TokenType as ERCType } from '@/bounceComponents/create-auction-pool/types'
 interface Notable721Props {

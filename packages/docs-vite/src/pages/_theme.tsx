@@ -5,7 +5,6 @@ import Component404 from './404'
 import { Button, Spin } from 'antd'
 import 'uno.css'
 import '../styles/index.less'
-
 export default createTheme({
 	logoLink(ctx) {
 		let prefix = ctx.resolvedLocale.localeKey

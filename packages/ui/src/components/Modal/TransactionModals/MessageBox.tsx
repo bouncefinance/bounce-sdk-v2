@@ -6,7 +6,7 @@ import { ReactComponent as FailureIcon } from '@/assets/componentsIcon/statusIco
 import { ReactComponent as SupportIcon } from '@/assets/componentsIcon/statusIcon/support_icon.svg'
 import { ReactComponent as Error } from '@/assets/componentsIcon/statusIcon/error_icon.svg'
 import { ReactComponent as Warning } from '@/assets/componentsIcon/statusIcon/warning_icon.svg'
-import useModal from 'hooks/useModal'
+import useModal from '@/hooks/useModal'
 
 interface Props {
   type: 'success' | 'failure' | 'support' | 'error' | 'warning'

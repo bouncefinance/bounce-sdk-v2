@@ -7,7 +7,7 @@ import { ActionType, useAuctionInChain, useValuesDispatch, useValuesState } from
 import ShowNFTCard from '@/bounceComponents/create-auction-pool/TokenERC1155InforationForm/components/NFTCard/ShowNFTCard'
 import Token721Dialog from './components/Token721Dialog/index'
 import { UserNFTCollection } from '@/api/user/type'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { ChainId } from '@/constants/chain'
 import ErrorIcon from '@mui/icons-material/Error'
 import EmptyCard from '@/bounceComponents/create-auction-pool/TokenERC1155InforationForm/components/NFTCard/EmptyCard'

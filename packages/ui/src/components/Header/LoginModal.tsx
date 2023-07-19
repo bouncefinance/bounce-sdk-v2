@@ -8,7 +8,7 @@ import { useUserInfo, useWeb3Login } from '@/state/users/hooks'
 import { useCallback, useEffect } from 'react'
 import { setInjectedConnected } from '@/utils/isInjectedConnectedPrev'
 import { useWeb3React } from '@web3-react/core'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 
 export default function LoginModal() {
   const { connector, deactivate } = useWeb3React()

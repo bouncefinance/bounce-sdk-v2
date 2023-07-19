@@ -1,8 +1,8 @@
 import { FixedSwapPoolProp, PoolType } from '@/api/pool/type'
 import { Currency, CurrencyAmount } from '@/constants/token'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useSingleCallResult } from '@/state/multicall/hooks'
-import { useRandomSelectionERC20Contract } from 'hooks/useContract'
+import { useRandomSelectionERC20Contract } from '@/hooks/useContract'
 import { useMemo } from 'react'
 import { useBackedPoolInfo } from './usePoolInfo'
 

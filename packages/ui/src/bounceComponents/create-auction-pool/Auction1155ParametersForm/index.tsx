@@ -19,8 +19,8 @@ import TokenImage from '@/bounceComponents/common/TokenImage'
 import EmptyNFTIcon from '@/bounceComponents/create-auction-pool/TokenERC1155InforationForm/components/NFTCard/emptyNFTIcon.png'
 import { ChainId } from '@/constants/chain'
 import { Token } from '@/bounceComponents/fixed-swap/type'
-import { useActiveWeb3React } from 'hooks'
-import { useERC1155Balance } from 'hooks/useNFTTokenBalance'
+import { useActiveWeb3React } from '@/hooks'
+import { useERC1155Balance } from '@/hooks/useNFTTokenBalance'
 
 interface FormValues {
   tokenFromAddress: string

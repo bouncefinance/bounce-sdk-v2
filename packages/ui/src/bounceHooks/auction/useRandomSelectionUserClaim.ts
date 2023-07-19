@@ -1,6 +1,6 @@
 import { FixedSwapPoolProp } from '@/api/pool/type'
-import { useActiveWeb3React } from 'hooks'
-import { useRandomSelectionERC20Contract } from 'hooks/useContract'
+import { useActiveWeb3React } from '@/hooks'
+import { useRandomSelectionERC20Contract } from '@/hooks/useContract'
 import { useCallback } from 'react'
 import { useTransactionAdder, useUserHasSubmittedRecords } from '@/state/transactions/hooks'
 import { calculateGasMargin } from '@/utils'

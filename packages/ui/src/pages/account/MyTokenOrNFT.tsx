@@ -1,10 +1,10 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
-import AccountLayout from 'bounceComponents/account/AccountLayout'
-import AuctionParticipatedTab from 'bounceComponents/account/AuctionAddressTab/ParticipatedTab'
-import ActivitiesTab from 'bounceComponents/account/AuctionAddressTab/ActivitiesTab'
+import AccountLayout from '@/bounceComponents/account/AccountLayout'
+import AuctionParticipatedTab from '@/bounceComponents/account/AuctionAddressTab/ParticipatedTab'
+import ActivitiesTab from '@/bounceComponents/account/AuctionAddressTab/ActivitiesTab'
 import { useState } from 'react'
 import styles from './tabStyles'
-import CurrentPoolStatus from 'bounceComponents/account/CurrentPoolStatus'
+import CurrentPoolStatus from '@/bounceComponents/account/CurrentPoolStatus'
 import useBreakpoint from '../../hooks/useBreakpoint'
 
 enum TabListProp {

@@ -1,7 +1,7 @@
 import { useRequest } from 'ahooks'
 import { getUserDashboardStat, getUserPoolsDashboardCollect, getUserPoolsDashboardCreated } from '@/api/account'
 import { DashboardQueryType } from '@/api/account/types'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 
 export function useDashboardUserCreated(queryType: DashboardQueryType) {
   const { account } = useActiveWeb3React()

@@ -23,7 +23,7 @@ import { formatNumber } from '@/utils/number'
 import { getWinnersList } from '@/api/pool/index'
 import { shortenAddress } from '@/utils'
 import { FixedSwapPoolProp } from '@/api/pool/type'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCallback, useEffect } from 'react'
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {

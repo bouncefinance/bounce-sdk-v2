@@ -1,6 +1,6 @@
 import { FixedSwapNFTPoolProp, PoolStatus } from '@/api/pool/type'
 import { useCreatorClaimNFT } from '@/bounceHooks/auction/useCreatorClaimNFT'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCallback, useMemo } from 'react'
 import { LoadingButton } from '@mui/lab'
 import { show } from '@ebay/nice-modal-react'

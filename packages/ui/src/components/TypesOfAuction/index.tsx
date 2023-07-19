@@ -35,158 +35,166 @@ import Icon8 from '@/assets/imgs/home/TypeOfAuction/icon8.svg'
 import { getAuctionVolumeCountData } from '@/api/market'
 import { useRequest } from 'ahooks'
 import { PoolType } from '@/api/pool/type'
-import PoolListDialog from 'pages/tokenAuction/components/listDialog'
-import NftListDialog from 'pages/nftAuction/components/listDialog'
+import PoolListDialog from '@/pages/tokenAuction/components/listDialog'
+import NftListDialog from '@/pages/nftAuction/components/listDialog'
 import useBreakpoint from '../../hooks/useBreakpoint'
 interface AuctionItemParams {
-  title: string
-  defaultImg: string
-  hoverImg: string
-  totalValue: number
-  link?: string
-  poolType?: PoolType | string
-  handleOpenTokenAuction?: () => void
-  handleOpenNFTAuction?: () => void
+	title: string
+	defaultImg: string
+	hoverImg: string
+	totalValue: number
+	link?: string
+	poolType?: PoolType | string
+	handleOpenTokenAuction?: () => void
+	handleOpenNFTAuction?: () => void
 }
 interface Notable1155Props {
-  handleViewAll?: () => void
+	handleViewAll?: () => void
 }
 const AuctionItem = (props: AuctionItemParams) => {
-  const { title, defaultImg, hoverImg, totalValue, link, handleOpenTokenAuction, handleOpenNFTAuction, poolType } =
-    props
-  const [isHover, setIsHover] = useState(false)
-  const isSm = useBreakpoint('sm')
-  return (
-    <Box
-      sx={{
-        position: 'relative',
-        width: [152, 230],
-        height: [90, 110],
-        cursor: 'pointer'
-      }}
-      onMouseEnter={() => {
-        setIsHover(true)
-      }}
-      onMouseLeave={() => {
-        setIsHover(false)
-      }}
-      onClick={() => {
-        if (poolType === PoolType.FixedSwap || poolType === PoolType.Lottery) {
-          handleOpenTokenAuction && handleOpenTokenAuction()
-        } else if (poolType === PoolType.fixedSwapNft) {
-          handleOpenNFTAuction && handleOpenNFTAuction()
-        } else {
-          link && window.open(link, '_blank')
-        }
-      }}
-    >
-      {
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: [152, 230],
-            height: [90, 110],
-            background: 'var(--ps-text-3)',
-            borderRadius: 24,
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            transform: !isHover ? 'rotateX(0)' : 'rotateX(90deg)',
-            transition: 'all 0.6s'
-          }}
-        >
-          <img
-            src={defaultImg}
-            style={{
-              display: 'block',
-              width: 24
-            }}
-            alt=""
-          />
-          <Typography
-            sx={{
-              fontFamily: `'Inter'`,
-              fontWeight: 400,
-              fontSize: 14,
-              textAlign: 'center',
-              color: '#fff'
-            }}
-          >
-            {title}
-          </Typography>
-        </Box>
-      }
-      {
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: [152, 230],
-            height: [90, 110],
-            background: 'var(--ps-yellow-1)',
-            borderRadius: 24,
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-            padding: { xs: '12px 8px', md: '12px 16px' },
-            transform: isHover ? 'rotateX(0)' : 'rotateX(90deg)',
-            transition: 'all 0.6s'
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: `'Inter'`,
-              fontWeight: 400,
-              fontSize: 13,
-              color: 'var(--ps-text-3)',
-              lineHeight: '24px',
-              marginBottom: { xs: 0, md: 15 },
-              whiteSpace: 'nowrap'
-            }}
-          >
-            <img
-              src={hoverImg}
-              style={{
-                display: 'inline-block',
-                width: 24,
-                verticalAlign: 'middle',
-                marginRight: isSm ? 4 : 12
-              }}
-              alt=""
-            />
-            {title}
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: `'Inter'`,
-              fontWeight: 400,
-              fontSize: 12,
-              color: 'var(--ps-text-1)',
-              lineHeight: '17px'
-            }}
-          >
-            total value
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: `'Public Sans'`,
-              fontWeight: 600,
-              fontSize: 20,
-              color: 'var(--ps-text-3)',
-              lineHeight: '28px'
-            }}
-          >
-            ${totalValue}
-          </Typography>
-        </Box>
-      }
-    </Box>
-  )
+	const {
+		title,
+		defaultImg,
+		hoverImg,
+		totalValue,
+		link,
+		handleOpenTokenAuction,
+		handleOpenNFTAuction,
+		poolType,
+	} = props
+	const [isHover, setIsHover] = useState(false)
+	const isSm = useBreakpoint('sm')
+	return (
+		<Box
+			sx={{
+				position: 'relative',
+				width: [152, 230],
+				height: [90, 110],
+				cursor: 'pointer',
+			}}
+			onMouseEnter={() => {
+				setIsHover(true)
+			}}
+			onMouseLeave={() => {
+				setIsHover(false)
+			}}
+			onClick={() => {
+				if (poolType === PoolType.FixedSwap || poolType === PoolType.Lottery) {
+					handleOpenTokenAuction && handleOpenTokenAuction()
+				} else if (poolType === PoolType.fixedSwapNft) {
+					handleOpenNFTAuction && handleOpenNFTAuction()
+				} else {
+					link && window.open(link, '_blank')
+				}
+			}}
+		>
+			{
+				<Box
+					sx={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						width: [152, 230],
+						height: [90, 110],
+						background: 'var(--ps-text-3)',
+						borderRadius: 24,
+						display: 'flex',
+						flexFlow: 'column nowrap',
+						justifyContent: 'center',
+						alignItems: 'center',
+						transform: !isHover ? 'rotateX(0)' : 'rotateX(90deg)',
+						transition: 'all 0.6s',
+					}}
+				>
+					<img
+						src={defaultImg}
+						style={{
+							display: 'block',
+							width: 24,
+						}}
+						alt=""
+					/>
+					<Typography
+						sx={{
+							fontFamily: `'Inter'`,
+							fontWeight: 400,
+							fontSize: 14,
+							textAlign: 'center',
+							color: '#fff',
+						}}
+					>
+						{title}
+					</Typography>
+				</Box>
+			}
+			{
+				<Box
+					sx={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						width: [152, 230],
+						height: [90, 110],
+						background: 'var(--ps-yellow-1)',
+						borderRadius: 24,
+						display: 'flex',
+						flexFlow: 'column nowrap',
+						justifyContent: 'center',
+						alignItems: 'flex-start',
+						padding: { xs: '12px 8px', md: '12px 16px' },
+						transform: isHover ? 'rotateX(0)' : 'rotateX(90deg)',
+						transition: 'all 0.6s',
+					}}
+				>
+					<Typography
+						sx={{
+							fontFamily: `'Inter'`,
+							fontWeight: 400,
+							fontSize: 13,
+							color: 'var(--ps-text-3)',
+							lineHeight: '24px',
+							marginBottom: { xs: 0, md: 15 },
+							whiteSpace: 'nowrap',
+						}}
+					>
+						<img
+							src={hoverImg}
+							style={{
+								display: 'inline-block',
+								width: 24,
+								verticalAlign: 'middle',
+								marginRight: isSm ? 4 : 12,
+							}}
+							alt=""
+						/>
+						{title}
+					</Typography>
+					<Typography
+						sx={{
+							fontFamily: `'Inter'`,
+							fontWeight: 400,
+							fontSize: 12,
+							color: 'var(--ps-text-1)',
+							lineHeight: '17px',
+						}}
+					>
+						total value
+					</Typography>
+					<Typography
+						sx={{
+							fontFamily: `'Public Sans'`,
+							fontWeight: 600,
+							fontSize: 20,
+							color: 'var(--ps-text-3)',
+							lineHeight: '28px',
+						}}
+					>
+						${totalValue}
+					</Typography>
+				</Box>
+			}
+		</Box>
+	)
 }
 const logoDown = keyframes`
   25% {
@@ -208,429 +216,437 @@ const scrollX = keyframes`
   }
 `
 const LogoDown = styled('img')(() => ({
-  width: 90,
-  animation: `${logoDown} 1.2s infinite`
+	width: 90,
+	animation: `${logoDown} 1.2s infinite`,
 }))
 const SlideBox = styled(Box)(() => ({
-  '.marqueeGroup': {
-    animation: `${scrollX} 60s linear infinite`
-  }
+	'.marqueeGroup': {
+		animation: `${scrollX} 60s linear infinite`,
+	},
 }))
 const FixBtn = styled(Button)(() => ({
-  width: 170,
-  height: 42,
-  padding: '16px 20px',
-  position: 'absolute',
-  right: '52px',
-  top: '24px',
-  bottom: 'unset',
-  zIndex: 999,
-  whiteSpace: 'nowrap',
-  opacity: 1,
-  transition: 'all 0.6s',
-  '&.pcFixBtn': {
-    position: 'fixed',
-    right: '72px',
-    top: 'unset',
-    bottom: '20px'
-  },
-  '&.mobileFixBtn': {
-    position: 'fixed',
-    right: '50%',
-    top: 'unset',
-    bottom: '20px',
-    transform: 'translate3D(50%, 0, 0)'
-  },
-  '&.notShow': {
-    display: 'none'
-  }
+	width: 170,
+	height: 42,
+	padding: '16px 20px',
+	position: 'absolute',
+	right: '52px',
+	top: '24px',
+	bottom: 'unset',
+	zIndex: 999,
+	whiteSpace: 'nowrap',
+	opacity: 1,
+	transition: 'all 0.6s',
+	'&.pcFixBtn': {
+		position: 'fixed',
+		right: '72px',
+		top: 'unset',
+		bottom: '20px',
+	},
+	'&.mobileFixBtn': {
+		position: 'fixed',
+		right: '50%',
+		top: 'unset',
+		bottom: '20px',
+		transform: 'translate3D(50%, 0, 0)',
+	},
+	'&.notShow': {
+		display: 'none',
+	},
 }))
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
-  const isSm = useBreakpoint('sm')
-  const theme = useTheme()
-  const [fixBtn, setFixBtn] = useState(false)
-  const slideImgList = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8]
-  const { data: volumnCountData } = useRequest(async () => {
-    const resp = await getAuctionVolumeCountData()
-    return {
-      data: resp?.data || {}
-    }
-  })
-  const leftAuctioinList = useMemo(() => {
-    const result = [
-      {
-        title: 'Fixed-priced Auction',
-        defaultImg: FixedPriceWhite,
-        hoverImg: FixedPriceBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/fixed-price-auction',
-        poolType: PoolType.FixedSwap
-      },
-      {
-        title: 'English Auction',
-        defaultImg: EnglishAuctionWhite,
-        hoverImg: EnglishAuctionBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/english-auction',
-        poolType: PoolType.ENGLISH_AUCTION_NFT
-      },
-      {
-        title: 'Dutch Auction',
-        defaultImg: DutchAuctionWhite,
-        hoverImg: DutchAuctionBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/dutch-auction',
-        poolType: PoolType.Duch
-      },
-      {
-        title: 'Sealed-Bid Auction',
-        defaultImg: SealedBidAuctionWhite,
-        hoverImg: SealedBidAuctionBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/sealed-bid-auction',
-        poolType: PoolType.SealedBid
-      }
-    ]
-    result.map(item => {
-      if (volumnCountData?.data && volumnCountData?.data[item.poolType]) {
-        item.totalValue = volumnCountData.data[item.poolType]
-      }
-    })
-    return result
-  }, [volumnCountData])
-  const rightAuctioinList = useMemo(() => {
-    const result = [
-      {
-        title: 'Random Selection Auction',
-        defaultImg: RandomSelectWhite,
-        hoverImg: RandomSelectBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/random-selection-auction',
-        poolType: PoolType.Lottery
-      },
-      {
-        title: 'Playable Auction',
-        defaultImg: PlayableWhite,
-        hoverImg: PlayableBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/playable-auction',
-        poolType: ''
-      },
-      {
-        title: 'Order Book Auction',
-        defaultImg: OrderBookWhite,
-        hoverImg: OrderBookBlack,
-        totalValue: 0,
-        link: 'https://docs.bounce.finance/bounce-auctions/orderbook-auction',
-        poolType: ''
-      },
-      {
-        title: 'Hold-to-compete Auction',
-        defaultImg: HoldToCompeteWhite,
-        hoverImg: HoldToCompeteBlack,
-        totalValue: 0,
-        link: '',
-        poolType: ''
-      }
-    ]
-    result.map(item => {
-      if (volumnCountData?.data && volumnCountData?.data[item.poolType]) {
-        item.totalValue = volumnCountData.data[item.poolType]
-      }
-    })
-    return result
-  }, [volumnCountData])
-  const [openTokenAuction, setOpenTokenAuction] = useState(false)
-  const [openNFTAuction, setOpenNFTAuction] = useState(false)
-  const [winH, setWinHeight] = useState<number>(window.innerHeight)
-  const handleClose = () => {
-    setOpenTokenAuction(false)
-    setOpenNFTAuction(false)
-  }
-  const handleOpenToken = () => {
-    setOpenTokenAuction(true)
-  }
-  const handleOpenNft = () => {
-    setOpenTokenAuction(true)
-  }
-  const fixBtnClassName = useMemo(() => {
-    if (isSm) {
-      return fixBtn ? 'mobileFixBtn' : 'notShow'
-    } else {
-      return fixBtn ? 'pcFixBtn' : ''
-    }
-  }, [fixBtn, isSm])
-  const resizeWinH = () => {
-    setWinHeight(window.innerHeight)
-  }
-  useEffect(() => {
-    const getScrollCount = () => {
-      const typesOfAuctionTop = document.getElementById('typesOfAuction')?.getBoundingClientRect().top
-      const notableTop = document.getElementById('NotableAuction')?.getBoundingClientRect().top
-      const footerTop = document.getElementById('footer')?.getBoundingClientRect().top
-      if (!isSm && notableTop && notableTop >= winH) {
-        setFixBtn(false)
-      }
-      if (!isSm && notableTop && notableTop <= winH) {
-        setFixBtn(true)
-      }
-      if (isSm && typesOfAuctionTop && typesOfAuctionTop > winH / 2) {
-        setFixBtn(false)
-      }
-      if (isSm && typesOfAuctionTop && typesOfAuctionTop <= winH / 2) {
-        setFixBtn(true)
-      }
-      if (footerTop && footerTop <= winH - 20) {
-        setFixBtn(false)
-      }
-    }
-    window.addEventListener('resize', resizeWinH)
-    window.addEventListener('scroll', getScrollCount)
-    return () => {
-      window.removeEventListener('scroll', getScrollCount)
-      window.removeEventListener('resize', resizeWinH)
-    }
-  }, [isSm, theme.height.header, winH])
-  return (
-    <>
-      {/* Types of Auction On Bounce Finance */}
-      <Box
-        id={'typesOfAuction'}
-        sx={{
-          width: '100%',
-          maxWidth: 1440,
-          margin: '60px auto 20px',
-          background: `var(--ps-text-4)`,
-          borderRadius: 30,
-          padding: ['40px 0', '60px 0 0'],
-          marginBottom: 20,
-          position: 'relative'
-        }}
-      >
-        <FixBtn
-          className={fixBtnClassName}
-          onClick={() => {
-            handleViewAll && handleViewAll()
-          }}
-          variant="contained"
-          // href={AuctionList[currentIndex].checkAllLink}
-          endIcon={
-            <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M9 8.97105L8.84425 0.655752L0.528946 0.5L0.509197 1.55434L7.07697 1.67736L0 8.75434L0.745665 9.5L7.82263 2.42303L7.94565 8.9908L9 8.97105Z"
-                fill="#20201E"
-              />
-            </svg>
-          }
-        >
-          View all auctions
-        </FixBtn>
-        <Typography
-          sx={{
-            color: 'var(--ps-yellow-1)',
-            fontFamily: `'Public Sans'`,
-            fontWeight: 600,
-            fontSize: [22, 36],
-            lineHeight: '26px',
-            marginBottom: 46,
-            textAlign: 'center'
-          }}
-        >
-          Types of Auction {isSm && <br />}On Bounce Finance
-        </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            flexFlow: ['column nowrap', 'row nowrap'],
-            justifyContent: 'center',
-            alignItems: ['center', 'flex-start']
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexFlow: 'column nowrap',
-              justifyContent: 'center',
-              borderRadius: 24,
-              border: '1px solid var(--ps-yellow-1)',
-              margin: ['0 16px', 0],
-              padding: [8, 16]
-            }}
-          >
-            <Grid
-              container
-              sx={{
-                width: ['100%', 'min-content'],
-                '@media(max-width:600px)': {
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2,1fr)',
-                  justifyItems: 'center'
-                },
-                display: 'grid',
-                gridTemplateColumns: 'repeat(1,1fr)'
-              }}
-              spacing={[8, 16]}
-            >
-              {leftAuctioinList.map((item, index) => (
-                <Grid item key={index} sm={6} lg={12}>
-                  <AuctionItem
-                    key={index}
-                    title={item.title}
-                    defaultImg={item.defaultImg}
-                    hoverImg={item.hoverImg}
-                    totalValue={item.totalValue}
-                    link={item.link}
-                    poolType={item.poolType}
-                    handleOpenTokenAuction={handleOpenToken}
-                    handleOpenNFTAuction={handleOpenNft}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-          <img
-            src={isSm ? TopArrow : LeftArrow}
-            style={{
-              width: isSm ? 224 : 120
-            }}
-            alt=""
-            srcSet=""
-          />
-          <Box
-            sx={{
-              display: 'flex',
-              flexFlow: 'column nowrap',
-              width: ['100%', 'inherit'],
-              padding: ['0 16px', 0],
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <Box
-              sx={{
-                width: ['100%', 300],
-                height: [160, 300],
-                borderRadius: 30,
-                border: '1px solid var(--ps-yellow-1)',
-                display: 'flex',
-                flexFlow: 'column nowrap',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <LogoDown src={Logo} alt="" srcSet="" />
-            </Box>
-            {!isSm && (
-              <img
-                src={CenterBottomArrow}
-                style={{
-                  width: 24
-                }}
-                alt=""
-                srcSet=""
-              />
-            )}
-          </Box>
-          <img
-            src={isSm ? BottomArrow : RightArrow}
-            style={{
-              width: isSm ? 224 : 120
-            }}
-            alt=""
-            srcSet=""
-          />
-          <Box
-            sx={{
-              display: 'flex',
-              flexFlow: 'column nowrap',
-              justifyContent: 'center',
-              borderRadius: 24,
-              border: '1px solid var(--ps-yellow-1)',
-              margin: ['0 16px', 0],
-              padding: 16
-            }}
-          >
-            <Grid
-              container
-              sx={{
-                width: ['100%', 'min-content'],
-                '@media(max-width:600px)': {
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2,1fr)',
-                  justifyItems: 'center'
-                },
-                display: 'grid',
-                gridTemplateColumns: 'repeat(1,1fr)'
-              }}
-              spacing={[8, 16]}
-            >
-              {rightAuctioinList.map((item, index) => (
-                <Grid item key={index} sm={6} lg={12}>
-                  <AuctionItem
-                    key={index}
-                    title={item.title}
-                    defaultImg={item.defaultImg}
-                    hoverImg={item.hoverImg}
-                    totalValue={item.totalValue}
-                    link={item.link}
-                    poolType={item.poolType}
-                    handleOpenTokenAuction={handleOpenToken}
-                    handleOpenNFTAuction={handleOpenNft}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        </Box>
-      </Box>
-      {/* slide */}
-      <SlideBox
-        sx={{
-          width: '100%',
-          height: [62, 90],
-          maxWidth: 1296,
-          margin: '0 auto 20px',
-          background: 'var(--ps-yellow-1)',
-          borderRadius: 90,
-          overflow: 'hidden'
-          //   maskImage: `linear-gradient( var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0) )`
-        }}
-      >
-        <Box
-          sx={{
-            width: '100%',
-            height: [62, 90],
-            maxWidth: '1100px',
-            margin: '0 auto',
-            display: 'flex',
-            flexFlow: 'row nowrap',
-            justifyContent: 'flex-start',
-            alignItems: 'center'
-          }}
-          className={'marqueeGroup'}
-          gap={isSm ? 30 : 100}
-        >
-          {[...slideImgList, ...slideImgList].map((item, index) => {
-            return (
-              <img
-                key={index}
-                src={item}
-                style={{
-                  width: isSm ? 30 : 50
-                }}
-                alt="logo"
-              />
-            )
-          })}
-        </Box>
-      </SlideBox>
-      <PoolListDialog open={openTokenAuction} handleClose={handleClose} />
-      <NftListDialog open={openNFTAuction} handleClose={handleClose} />
-    </>
-  )
+	const isSm = useBreakpoint('sm')
+	const theme = useTheme()
+	const [fixBtn, setFixBtn] = useState(false)
+	const slideImgList = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8]
+	const { data: volumnCountData } = useRequest(async () => {
+		const resp = await getAuctionVolumeCountData()
+		return {
+			data: resp?.data || {},
+		}
+	})
+	const leftAuctioinList = useMemo(() => {
+		const result = [
+			{
+				title: 'Fixed-priced Auction',
+				defaultImg: FixedPriceWhite,
+				hoverImg: FixedPriceBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/fixed-price-auction',
+				poolType: PoolType.FixedSwap,
+			},
+			{
+				title: 'English Auction',
+				defaultImg: EnglishAuctionWhite,
+				hoverImg: EnglishAuctionBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/english-auction',
+				poolType: PoolType.ENGLISH_AUCTION_NFT,
+			},
+			{
+				title: 'Dutch Auction',
+				defaultImg: DutchAuctionWhite,
+				hoverImg: DutchAuctionBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/dutch-auction',
+				poolType: PoolType.Duch,
+			},
+			{
+				title: 'Sealed-Bid Auction',
+				defaultImg: SealedBidAuctionWhite,
+				hoverImg: SealedBidAuctionBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/sealed-bid-auction',
+				poolType: PoolType.SealedBid,
+			},
+		]
+		result.map((item) => {
+			if (volumnCountData?.data && volumnCountData?.data[item.poolType]) {
+				item.totalValue = volumnCountData.data[item.poolType]
+			}
+		})
+		return result
+	}, [volumnCountData])
+	const rightAuctioinList = useMemo(() => {
+		const result = [
+			{
+				title: 'Random Selection Auction',
+				defaultImg: RandomSelectWhite,
+				hoverImg: RandomSelectBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/random-selection-auction',
+				poolType: PoolType.Lottery,
+			},
+			{
+				title: 'Playable Auction',
+				defaultImg: PlayableWhite,
+				hoverImg: PlayableBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/playable-auction',
+				poolType: '',
+			},
+			{
+				title: 'Order Book Auction',
+				defaultImg: OrderBookWhite,
+				hoverImg: OrderBookBlack,
+				totalValue: 0,
+				link: 'https://docs.bounce.finance/bounce-auctions/orderbook-auction',
+				poolType: '',
+			},
+			{
+				title: 'Hold-to-compete Auction',
+				defaultImg: HoldToCompeteWhite,
+				hoverImg: HoldToCompeteBlack,
+				totalValue: 0,
+				link: '',
+				poolType: '',
+			},
+		]
+		result.map((item) => {
+			if (volumnCountData?.data && volumnCountData?.data[item.poolType]) {
+				item.totalValue = volumnCountData.data[item.poolType]
+			}
+		})
+		return result
+	}, [volumnCountData])
+	const [openTokenAuction, setOpenTokenAuction] = useState(false)
+	const [openNFTAuction, setOpenNFTAuction] = useState(false)
+	const [winH, setWinHeight] = useState<number>(window.innerHeight)
+	const handleClose = () => {
+		setOpenTokenAuction(false)
+		setOpenNFTAuction(false)
+	}
+	const handleOpenToken = () => {
+		setOpenTokenAuction(true)
+	}
+	const handleOpenNft = () => {
+		setOpenTokenAuction(true)
+	}
+	const fixBtnClassName = useMemo(() => {
+		if (isSm) {
+			return fixBtn ? 'mobileFixBtn' : 'notShow'
+		} else {
+			return fixBtn ? 'pcFixBtn' : ''
+		}
+	}, [fixBtn, isSm])
+	const resizeWinH = () => {
+		setWinHeight(window.innerHeight)
+	}
+	useEffect(() => {
+		const getScrollCount = () => {
+			const typesOfAuctionTop = document
+				.getElementById('typesOfAuction')
+				?.getBoundingClientRect().top
+			const notableTop = document.getElementById('NotableAuction')?.getBoundingClientRect().top
+			const footerTop = document.getElementById('footer')?.getBoundingClientRect().top
+			if (!isSm && notableTop && notableTop >= winH) {
+				setFixBtn(false)
+			}
+			if (!isSm && notableTop && notableTop <= winH) {
+				setFixBtn(true)
+			}
+			if (isSm && typesOfAuctionTop && typesOfAuctionTop > winH / 2) {
+				setFixBtn(false)
+			}
+			if (isSm && typesOfAuctionTop && typesOfAuctionTop <= winH / 2) {
+				setFixBtn(true)
+			}
+			if (footerTop && footerTop <= winH - 20) {
+				setFixBtn(false)
+			}
+		}
+		window.addEventListener('resize', resizeWinH)
+		window.addEventListener('scroll', getScrollCount)
+		return () => {
+			window.removeEventListener('scroll', getScrollCount)
+			window.removeEventListener('resize', resizeWinH)
+		}
+	}, [isSm, theme.height.header, winH])
+	return (
+		<>
+			{/* Types of Auction On Bounce Finance */}
+			<Box
+				id={'typesOfAuction'}
+				sx={{
+					width: '100%',
+					maxWidth: 1440,
+					margin: '60px auto 20px',
+					background: `var(--ps-text-4)`,
+					borderRadius: 30,
+					padding: ['40px 0', '60px 0 0'],
+					marginBottom: 20,
+					position: 'relative',
+				}}
+			>
+				<FixBtn
+					className={fixBtnClassName}
+					onClick={() => {
+						handleViewAll && handleViewAll()
+					}}
+					variant="contained"
+					// href={AuctionList[currentIndex].checkAllLink}
+					endIcon={
+						<svg
+							width="9"
+							height="10"
+							viewBox="0 0 9 10"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								fillRule="evenodd"
+								clipRule="evenodd"
+								d="M9 8.97105L8.84425 0.655752L0.528946 0.5L0.509197 1.55434L7.07697 1.67736L0 8.75434L0.745665 9.5L7.82263 2.42303L7.94565 8.9908L9 8.97105Z"
+								fill="#20201E"
+							/>
+						</svg>
+					}
+				>
+					View all auctions
+				</FixBtn>
+				<Typography
+					sx={{
+						color: 'var(--ps-yellow-1)',
+						fontFamily: `'Public Sans'`,
+						fontWeight: 600,
+						fontSize: [22, 36],
+						lineHeight: '26px',
+						marginBottom: 46,
+						textAlign: 'center',
+					}}
+				>
+					Types of Auction {isSm && <br />}On Bounce Finance
+				</Typography>
+				<Box
+					sx={{
+						display: 'flex',
+						flexFlow: ['column nowrap', 'row nowrap'],
+						justifyContent: 'center',
+						alignItems: ['center', 'flex-start'],
+					}}
+				>
+					<Box
+						sx={{
+							display: 'flex',
+							flexFlow: 'column nowrap',
+							justifyContent: 'center',
+							borderRadius: 24,
+							border: '1px solid var(--ps-yellow-1)',
+							margin: ['0 16px', 0],
+							padding: [8, 16],
+						}}
+					>
+						<Grid
+							container
+							sx={{
+								width: ['100%', 'min-content'],
+								'@media(max-width:600px)': {
+									display: 'grid',
+									gridTemplateColumns: 'repeat(2,1fr)',
+									justifyItems: 'center',
+								},
+								display: 'grid',
+								gridTemplateColumns: 'repeat(1,1fr)',
+							}}
+							spacing={[8, 16]}
+						>
+							{leftAuctioinList.map((item, index) => (
+								<Grid item key={index} sm={6} lg={12}>
+									<AuctionItem
+										key={index}
+										title={item.title}
+										defaultImg={item.defaultImg}
+										hoverImg={item.hoverImg}
+										totalValue={item.totalValue}
+										link={item.link}
+										poolType={item.poolType}
+										handleOpenTokenAuction={handleOpenToken}
+										handleOpenNFTAuction={handleOpenNft}
+									/>
+								</Grid>
+							))}
+						</Grid>
+					</Box>
+					<img
+						src={isSm ? TopArrow : LeftArrow}
+						style={{
+							width: isSm ? 224 : 120,
+						}}
+						alt=""
+						srcSet=""
+					/>
+					<Box
+						sx={{
+							display: 'flex',
+							flexFlow: 'column nowrap',
+							width: ['100%', 'inherit'],
+							padding: ['0 16px', 0],
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
+					>
+						<Box
+							sx={{
+								width: ['100%', 300],
+								height: [160, 300],
+								borderRadius: 30,
+								border: '1px solid var(--ps-yellow-1)',
+								display: 'flex',
+								flexFlow: 'column nowrap',
+								justifyContent: 'center',
+								alignItems: 'center',
+							}}
+						>
+							<LogoDown src={Logo} alt="" srcSet="" />
+						</Box>
+						{!isSm && (
+							<img
+								src={CenterBottomArrow}
+								style={{
+									width: 24,
+								}}
+								alt=""
+								srcSet=""
+							/>
+						)}
+					</Box>
+					<img
+						src={isSm ? BottomArrow : RightArrow}
+						style={{
+							width: isSm ? 224 : 120,
+						}}
+						alt=""
+						srcSet=""
+					/>
+					<Box
+						sx={{
+							display: 'flex',
+							flexFlow: 'column nowrap',
+							justifyContent: 'center',
+							borderRadius: 24,
+							border: '1px solid var(--ps-yellow-1)',
+							margin: ['0 16px', 0],
+							padding: 16,
+						}}
+					>
+						<Grid
+							container
+							sx={{
+								width: ['100%', 'min-content'],
+								'@media(max-width:600px)': {
+									display: 'grid',
+									gridTemplateColumns: 'repeat(2,1fr)',
+									justifyItems: 'center',
+								},
+								display: 'grid',
+								gridTemplateColumns: 'repeat(1,1fr)',
+							}}
+							spacing={[8, 16]}
+						>
+							{rightAuctioinList.map((item, index) => (
+								<Grid item key={index} sm={6} lg={12}>
+									<AuctionItem
+										key={index}
+										title={item.title}
+										defaultImg={item.defaultImg}
+										hoverImg={item.hoverImg}
+										totalValue={item.totalValue}
+										link={item.link}
+										poolType={item.poolType}
+										handleOpenTokenAuction={handleOpenToken}
+										handleOpenNFTAuction={handleOpenNft}
+									/>
+								</Grid>
+							))}
+						</Grid>
+					</Box>
+				</Box>
+			</Box>
+			{/* slide */}
+			<SlideBox
+				sx={{
+					width: '100%',
+					height: [62, 90],
+					maxWidth: 1296,
+					margin: '0 auto 20px',
+					background: 'var(--ps-yellow-1)',
+					borderRadius: 90,
+					overflow: 'hidden',
+					//   maskImage: `linear-gradient( var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0) )`
+				}}
+			>
+				<Box
+					sx={{
+						width: '100%',
+						height: [62, 90],
+						maxWidth: '1100px',
+						margin: '0 auto',
+						display: 'flex',
+						flexFlow: 'row nowrap',
+						justifyContent: 'flex-start',
+						alignItems: 'center',
+					}}
+					className={'marqueeGroup'}
+					gap={isSm ? 30 : 100}
+				>
+					{[...slideImgList, ...slideImgList].map((item, index) => {
+						return (
+							<img
+								key={index}
+								src={item}
+								style={{
+									width: isSm ? 30 : 50,
+								}}
+								alt="logo"
+							/>
+						)
+					})}
+				</Box>
+			</SlideBox>
+			<PoolListDialog open={openTokenAuction} handleClose={handleClose} />
+			<NftListDialog open={openNFTAuction} handleClose={handleClose} />
+		</>
+	)
 }
 
 export default TypesOfAuction

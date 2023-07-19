@@ -1,5 +1,5 @@
 import { ChainId } from '@/constants/chain'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCallback } from 'react'
 import { triggerSwitchChain } from '@/utils/triggerSwitchChain'
 

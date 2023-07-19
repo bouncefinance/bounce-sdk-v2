@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { getUserNFTsInfo } from '@/api/user/index'
 import { UserNFTCollection } from '@/api/user/type'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 
 export interface Response1155Token {
   [key: string]: UserNFTCollection[]

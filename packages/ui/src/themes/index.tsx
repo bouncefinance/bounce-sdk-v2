@@ -1,19 +1,21 @@
-import { ThemeProvider } from '@mui/material'
 import { FC } from 'react'
-import { useMuiThemes } from './context'
+import MuiThemeProvider from './context'
+import { Provider } from 'react-redux'
+import store from '@/state'
 
 export * from './context'
 export * from './options/color'
 export * from './components'
 
 export const withBounceTheme = <T,>(Children: FC<T>) => {
-  return (props: T) => {
-    const { themes } = useMuiThemes()
-    return (
-      <ThemeProvider theme={themes}>
-        {/* @ts-ignore */}
-        <Children {...props} />
-      </ThemeProvider>
-    )
-  }
+	return (props: T) => {
+		return (
+			<MuiThemeProvider>
+				<Provider store={store}>
+					{/* @ts-ignore */}
+					<Children {...props} />
+				</Provider>
+			</MuiThemeProvider>
+		)
+	}
 }

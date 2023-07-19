@@ -4,7 +4,7 @@ import BidButtonBlock from './BidButtonBlock'
 import { UserBidAction } from './ActionBlock'
 import { checkIfAllocationLimitExist } from '@/utils/auction'
 import { FixedSwapPoolParams } from '@/bounceComponents/fixed-swap-nft/MainBlock/UserMainBlock'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useCurrencyBalance } from '@/state/wallet/hooks'
 import PoolInfoItem from '@/bounceComponents/fixed-swap/PoolInfoItem'
 

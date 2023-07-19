@@ -27,8 +27,8 @@ import Tooltip from '@/bounceComponents/common/Tooltip'
 import { isAddress } from '@/utils'
 // import { ChainId } from '@/constants/chain'
 import { useMemo } from 'react'
-import { useQueryParams } from 'hooks/useQueryParams'
-import useBreakpoint from 'hooks/useBreakpoint'
+import { useQueryParams } from '@/hooks/useQueryParams'
+import useBreakpoint from '@/hooks/useBreakpoint'
 
 interface MyFormValues {
   poolName: string

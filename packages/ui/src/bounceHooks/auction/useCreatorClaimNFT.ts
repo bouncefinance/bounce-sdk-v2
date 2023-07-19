@@ -2,8 +2,8 @@ import { useCallback, useMemo } from 'react'
 import { calculateGasMargin } from '@/utils'
 import { TransactionResponse, TransactionReceipt } from '@ethersproject/providers'
 import { useTransactionAdder, useUserHasSubmittedRecords } from '@/state/transactions/hooks'
-import { useActiveWeb3React } from 'hooks'
-import { useEnglishAuctionNftContract, useFixedSwapNftContract } from 'hooks/useContract'
+import { useActiveWeb3React } from '@/hooks'
+import { useEnglishAuctionNftContract, useFixedSwapNftContract } from '@/hooks/useContract'
 import { useSingleCallResult } from '@/state/multicall/hooks'
 
 export function useCreatorClaimNFT(poolId: number | string, name: string, contract?: string) {

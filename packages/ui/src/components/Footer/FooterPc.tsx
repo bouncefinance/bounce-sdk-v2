@@ -35,7 +35,7 @@ export function SocialLinkList({ sx }: { sx?: SxProps }) {
         href: 'https://github.com/bouncefinance'
       },
       {
-        title: 'API',
+        title: '@/api',
         icon: APIIcon,
         href: 'https://docs.bounce.finance/'
       }

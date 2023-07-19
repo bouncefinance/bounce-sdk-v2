@@ -10,7 +10,7 @@ import { AuctionProgressPrimaryColor } from '@/constants/auction/color'
 import { shortenAddress } from '@/utils'
 import { FixedSwapPoolProp } from '@/api/pool/type'
 import { addTokenToWallet } from '@/utils/addTokenToWallet'
-import { useActiveWeb3React } from 'hooks'
+import { useActiveWeb3React } from '@/hooks'
 import CertifiedTokenImage from '@/components/CertifiedTokenImage'
 
 const Title = ({ children }: { children: ReactNode }): JSX.Element => (

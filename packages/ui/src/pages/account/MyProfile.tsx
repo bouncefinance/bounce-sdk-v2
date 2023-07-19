@@ -1,10 +1,10 @@
 import { Box, Container, Typography } from '@mui/material'
-// import { updateUserBanner } from 'api/user'
-import AccountLayout from 'bounceComponents/account/AccountLayout'
-import ProfileOverview from 'bounceComponents/account/ProfileOverview'
+// import { updateUserBanner } from '@/api/user'
+import AccountLayout from '@/bounceComponents/account/AccountLayout'
+import ProfileOverview from '@/bounceComponents/account/ProfileOverview'
 import { useState } from 'react'
-import { useUserInfo } from 'state/users/hooks'
-import CropImg from 'bounceComponents/common/DialogCropImg'
+import { useUserInfo } from '@/state/users/hooks'
+import CropImg from '@/bounceComponents/common/DialogCropImg'
 import useBreakpoint from '../../hooks/useBreakpoint'
 
 export default function MyProfile() {

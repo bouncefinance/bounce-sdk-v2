@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "incremental": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -29,6 +31,7 @@
     "emitDeclarationOnly": true,
     "declarationDir": "lib",
     "typeRoots": ["node_modules/@types"],
+    "tsBuildInfoFile": ".tsbuildinfo",
     "plugins": [
       { "transform": "typescript-transform-paths" },
       {
@@ -37,7 +40,7 @@
       }
     ],
     "paths": {
-      "@bouncefinance/ui": ["./src"]
+      "@/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"],
