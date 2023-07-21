@@ -1,14 +1,22 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"]
-    }
-  },
-  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
+	"compilerOptions": {
+		"target": "ES2019",
+		"module": "ESNext",
+		"lib": ["ES2015"],
+		"jsx": "react-jsx",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"strict": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"preserveWatchOutput": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	}
 }

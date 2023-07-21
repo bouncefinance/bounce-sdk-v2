@@ -87,6 +87,7 @@ function useTokenBalancesWithLoadingIndicator(
 			) ?? [],
 		[tokens],
 	)
+	console.log('🚀 ~ validatedTokens:', validatedTokens)
 
 	const validatedTokenAddresses = useMemo(
 		() => validatedTokens.map((vt) => vt.address),
@@ -101,11 +102,13 @@ function useTokenBalancesWithLoadingIndicator(
 		undefined,
 		chainId,
 	)
+	console.log('🚀 ~ balances:', balances)
 
 	const anyLoading: boolean = useMemo(
 		() => balances.some((callState) => callState.loading),
 		[balances],
 	)
+	console.log('🚀 ~ anyLoading:', anyLoading)
 
 	return [
 		useMemo(
@@ -141,6 +144,7 @@ export function useCurrencyBalances(
 			currencies?.map((currency) => (currency && !currency?.isNative ? currency : undefined)) ?? [],
 		[currencies],
 	)
+	console.log('🚀 ~ tokens:', tokens)
 
 	const eths = useMemo(
 		() => currencies?.find((currency) => currency && currency.isNative),
@@ -148,6 +152,7 @@ export function useCurrencyBalances(
 	)
 
 	const tokenBalances = useTokenBalancesWithLoadingIndicator(account, tokens, chainId)[0]
+	console.log('🚀 ~ tokenBalances:', tokenBalances)
 
 	const ethBalance = useETHBalance(eths ? account : undefined, chainId)
 	// console.log('ethBalance>>>', ethBalance)

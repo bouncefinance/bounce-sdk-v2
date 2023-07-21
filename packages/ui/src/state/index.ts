@@ -2,8 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { save, load } from 'redux-localstorage-simple'
 
 import application from './application/reducer'
-// TODO: 因为运行时会报错global is not defined 所以把所有global都替换成globalThis了 这里打开就会识别不到路径
-// import { updateVersion } from './global/actions'
+import { updateVersion } from './global/actions'
 // import user from './user/reducer'
 import transactions from './transactions/reducer'
 import multicall from './multicall/reducer'

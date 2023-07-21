@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useEffect } from 'react'
 import { useActiveWeb3React } from './hooks'
-import { network } from './connectors'
+import { getNetworkLibrary, network } from './connectors'
 interface InitialStateProps {}
 export const InitialState: FC<PropsWithChildren<InitialStateProps>> = ({ children }) => {
 	const data = useActiveWeb3React()
@@ -8,14 +8,14 @@ export const InitialState: FC<PropsWithChildren<InitialStateProps>> = ({ childre
 	const { activate, active, connector, deactivate } = data
 
 	useEffect(() => {
-		if (!active) {
-			// activate(
-			// 	connector ?? network,
-			// 	(err) => {
-			// 		console.log('🚀 ~ err:', err)
-			// 	},
-			// 	true,
-			// )
+		if (!active && connector) {
+			activate(
+				connector,
+				(err) => {
+					console.log('🚀 ~ err:', err)
+				},
+				true,
+			)
 		}
 		// return () => {
 		// 	active && deactivate()

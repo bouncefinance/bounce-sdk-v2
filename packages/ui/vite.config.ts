@@ -9,6 +9,8 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'
 // import typescript from 'rollup-plugin-typescript2'
 // import ttypescript from 'ttypescript'
 // import presetAttributify from '@unocss/preset-attributify'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+
 // https://vitejs.dev/config/
 const resolvePath = (str: string) => resolve(__dirname, str)
 export default ({ mode }) => {
@@ -51,7 +53,7 @@ export default ({ mode }) => {
 				// process: 'rollup-plugin-node-polyfills/polyfills/process-es6',
 			},
 		},
-		plugins: [react()],
+		plugins: [react(), peerDepsExternal()],
 		// 开发或生产环境服务的公共基础路径,可以是/foo/、https://foo.com/、空字符串或./(用于开发环境) 几种类型，这个选项也可以通过命令行参数指定（例：vite build --base=/my/public/path/）
 		base: env.VITE_BASE_URL,
 		define: {

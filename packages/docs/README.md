@@ -1,40 +1,25 @@
-# @bouncefinance/ui
+# vite-pages library-monorepo starter
 
-[![NPM version](https://img.shields.io/npm/v/@bouncefinance/ui.svg?style=flat)](https://npmjs.org/package/@bouncefinance/ui)
-[![NPM downloads](http://img.shields.io/npm/dm/@bouncefinance/ui.svg?style=flat)](https://npmjs.org/package/@bouncefinance/ui)
+This is a demo project for [vite-plugin-react-pages](https://github.com/vitejs/vite-plugin-react-pages).
+This project demonstrate how to develop libraries **in monorepo** using vite as your local develop environment.
 
-bounce sdk
+> This demo project setup both [pnpm workspaces](https://pnpm.io/workspaces) and [npm workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces?v=true). You can use either one.
 
-## Usage
+## How to use
 
-TODO
+`pnpm install` or `npm install` (require npm 7+)
 
-## Options
+`cd packages/demos`
 
-TODO
+`pnpm run dev` or `npm run dev` You can play with demos of your packages in local develop environment.
 
-## Development
+Edit `packages/button/src/index.tsx` or other source files, the demos will inflect your change instantly.
+Edit `packages/button/demos/demo1.tsx` or other demo files, the demos will inflect your change instantly.
 
-```bash
-# install dependencies
-$ pnpm install
+`pnpm run build` The demos are built and served.
 
-# develop library by docs demo
-$ pnpm start
+`pnpm run ssr` The app are built into a static site (Static-Site Generation) and served.
 
-# build library source code
-$ pnpm run build
+---
 
-# build library source code in watch mode
-$ pnpm run build:watch
-
-# build docs
-$ pnpm run docs:build
-
-# check your project for potential problems
-$ pnpm run doctor
-```
-
-## LICENSE
-
-MIT
+Checkout [vite-plugin-react-pages](https://github.com/vitejs/vite-plugin-react-pages) for more info.
