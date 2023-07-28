@@ -1,10 +1,15 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useEffect } from 'react'
 import { createTheme, defaultSideNavs, useThemeCtx } from 'vite-pages-theme-doc'
 
 import Component404 from './404'
-import { Button, Spin } from 'antd'
+import { Spin } from 'antd'
 import 'uno.css'
 import '../styles/index.less'
+import ReactGA from 'react-ga4'
+import { useLocation } from 'react-router-dom'
+
+ReactGA.initialize('G-3T4CP7XLR0')
+
 export default createTheme({
 	logoLink(ctx) {
 		let prefix = ctx.resolvedLocale.localeKey
@@ -23,6 +28,28 @@ export default createTheme({
 		</div>
 	),
 	AppWrapper: (props?: PropsWithChildren) => {
+		const { pathname } = useLocation()
+		const theme = useThemeCtx()
+		const { resolvedLocale } = theme
+		useEffect(() => {
+			ReactGA.event({
+				category: 'switch_lang',
+				action: 'lang',
+				label: '切换语言', // optional
+				value: 100, // optional, must be a number
+				nonInteraction: false, // optional, true/false
+				transport: 'xhr',
+			}) // optional, beacon/xhr/imagedd'switch_lang', resolvedLocale.localeKey)
+			// console.log('🚀 ~ resolvedLocale.localeKey:', resolvedLocale.localeKey)
+		}, [resolvedLocale.localeKey])
+		// 	const isEN = theme.resolvedLocale.localeKey === 'en'
+		useEffect(() => {
+			console.log('🚀 ~ pathname:', pathname)
+			ReactGA.send({ hitType: 'pageview', page: pathname, title: document.title })
+		}, [pathname])
+		useEffect(() => {
+			ReactGA.initialize('G-3T4CP7XLR0')
+		}, [])
 		return props?.children
 	},
 	i18n: {
