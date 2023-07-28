@@ -17,122 +17,133 @@ import { CreatorUserInfo } from '@/api/pool/type'
 import Tooltip from '@/bounceComponents/common/Tooltip'
 import VerifiedIcon from '@/bounceComponents/common/VerifiedIcon'
 import { useUserInfo } from '@/state/users/hooks'
-import { useNavigate } from 'react-router-dom'
-import { routes } from '@/constants/routes'
 import DefaultAvatarSVG from '@/assets/imgs/profile/yellow_avatar.svg'
 import { useActiveWeb3React } from '@/hooks'
 import { PoolInfoProp } from '../type'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 
-interface ICreatorInfoCardProps {
-  creatorUserInfo: CreatorUserInfo
-  creator: string
-  poolInfo: PoolInfoProp
-  getPoolInfo: () => void
+export interface CreatorInfoCardProps {
+	creatorUserInfo: CreatorUserInfo
+	creator: string
+	poolInfo: PoolInfoProp
+	getPoolInfo: () => void
+	onClickAvatar?: () => void
+	onClickUsername?: () => void
 }
 
-const CreatorInfoCard: React.FC<ICreatorInfoCardProps> = ({ poolInfo, getPoolInfo, creator, creatorUserInfo }) => {
-  const { token } = useUserInfo()
-  const navigate = useNavigate()
-  const { account } = useActiveWeb3React()
-  const isMobile = useBreakpoint('lg')
+const CreatorInfoCard: React.FC<CreatorInfoCardProps> = ({
+	poolInfo,
+	getPoolInfo,
+	creator,
+	creatorUserInfo,
+	onClickAvatar,
+	onClickUsername,
+}) => {
+	const { token } = useUserInfo()
+	// const navigate = useNavigate()
+	const { account } = useActiveWeb3React()
+	const isMobile = useBreakpoint('lg')
 
-  const [userInfo, setUserInfo] = useState<any>(null)
+	const [userInfo, setUserInfo] = useState<any>(null)
 
-  useEffect(() => {
-    const getInfo = async () => {
-      const res =
-        creatorUserInfo?.userType === USER_TYPE.USER
-          ? await getUserInfo({ userId: creatorUserInfo?.userId })
-          : await getCompanyInfo({ userId: creatorUserInfo?.userId })
-      setUserInfo(res.data)
-    }
-    if (creatorUserInfo) {
-      getInfo()
-    }
-  }, [creatorUserInfo])
+	useEffect(() => {
+		const getInfo = async () => {
+			const res =
+				creatorUserInfo?.userType === USER_TYPE.USER
+					? await getUserInfo({ userId: creatorUserInfo?.userId })
+					: await getCompanyInfo({ userId: creatorUserInfo?.userId })
+			setUserInfo(res.data)
+		}
+		if (creatorUserInfo) {
+			getInfo()
+		}
+	}, [creatorUserInfo])
 
-  const isCurrentUserCreatedThisPool = creator.toLowerCase() === account?.toLowerCase()
+	const isCurrentUserCreatedThisPool = creator.toLowerCase() === account?.toLowerCase()
 
-  const handleUser = () => {
-    if (userInfo?.userType === USER_TYPE.USER) {
-      return navigate(`${routes.profile.summary}?id=${userInfo?.id}`)
-    }
-    return navigate(`${routes.profile.summary}?id=${userInfo?.companyId}`)
-  }
+	// const handleUser = () => {
+	// 	if (userInfo?.userType === USER_TYPE.USER) {
+	// 		return navigate(`${routes.profile.summary}?id=${userInfo?.id}`)
+	// 	}
+	// 	return navigate(`${routes.profile.summary}?id=${userInfo?.companyId}`)
+	// }
 
-  return (
-    <Box
-      sx={{
-        bgcolor: '#fff',
-        borderRadius: 20,
-        width: isMobile ? '100%' : 275,
-        flexShrink: 0,
-        height: 'fit-content',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        py: 28,
-        px: 24,
-        mb: 28,
-        mt: isMobile ? '20px' : ''
-      }}
-    >
-      <Avatar
-        sx={{ width: 120, height: 120, cursor: 'pointer' }}
-        src={userInfo?.avatar?.fileUrl || DefaultAvatarSVG}
-        onClick={handleUser}
-      />
+	return (
+		<Box
+			sx={{
+				bgcolor: '#fff',
+				borderRadius: 20,
+				width: isMobile ? '100%' : 275,
+				flexShrink: 0,
+				height: 'fit-content',
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'center',
+				py: 28,
+				px: 24,
+				mb: 28,
+				mt: isMobile ? '20px' : '',
+			}}
+		>
+			<Avatar
+				sx={{ width: 120, height: 120, cursor: 'pointer' }}
+				src={userInfo?.avatar?.fileUrl || DefaultAvatarSVG}
+				onClick={onClickAvatar}
+			/>
 
-      <Stack direction={'row'} alignItems="center" spacing={8} mt={24}>
-        <Typography
-          variant="h4"
-          sx={{ '&:hover': { cursor: 'pointer', textDecoration: 'underline' } }}
-          onClick={handleUser}
-        >
-          {userInfo?.fullName || userInfo?.companyName}
-        </Typography>
-        <VerifiedIcon isVerify={userInfo?.isVerify} />
-      </Stack>
-      <Tooltip title={userInfo?.description || userInfo?.briefIntro || 'No description yet'}>
-        <Typography
-          variant="body1"
-          sx={{
-            mt: 10,
-            color: 'var(--ps-gray-700)',
-            wordBreak: 'break-word',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            display: '-webkit-box',
-            WebkitLineClamp: '3',
-            WebkitBoxOrient: 'vertical'
-          }}
-        >
-          {userInfo?.description || userInfo?.briefIntro || 'No description yet'}
-        </Typography>
-      </Tooltip>
+			<Stack direction="row" alignItems="center" spacing={8} mt={24}>
+				<Typography
+					variant="h4"
+					sx={{ '&:hover': { cursor: 'pointer', textDecoration: 'underline' } }}
+					onClick={onClickUsername}
+				>
+					{userInfo?.fullName || userInfo?.companyName}
+				</Typography>
+				<VerifiedIcon isVerify={userInfo?.isVerify} />
+			</Stack>
+			<Tooltip title={userInfo?.description || userInfo?.briefIntro || 'No description yet'}>
+				<Typography
+					variant="body1"
+					sx={{
+						mt: 10,
+						color: 'var(--ps-gray-700)',
+						wordBreak: 'break-word',
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						display: '-webkit-box',
+						WebkitLineClamp: '3',
+						WebkitBoxOrient: 'vertical',
+					}}
+				>
+					{userInfo?.description || userInfo?.briefIntro || 'No description yet'}
+				</Typography>
+			</Tooltip>
 
-      <SocialMediaButtonGroup
-        email={userInfo?.contactEmail}
-        shouldShowEmailButton={!!token}
-        twitter={userInfo?.twitter}
-        instagram={userInfo?.instagram}
-        website={userInfo?.website}
-        linkedin={userInfo?.linkedin}
-        github={userInfo?.github}
-      />
+			<SocialMediaButtonGroup
+				email={userInfo?.contactEmail}
+				shouldShowEmailButton={!!token}
+				twitter={userInfo?.twitter}
+				instagram={userInfo?.instagram}
+				website={userInfo?.website}
+				linkedin={userInfo?.linkedin}
+				github={userInfo?.github}
+			/>
 
-      <AuctionDescription poolInfo={poolInfo} getPoolInfo={getPoolInfo} canEdit={isCurrentUserCreatedThisPool} />
+			<AuctionDescription
+				poolInfo={poolInfo}
+				getPoolInfo={getPoolInfo}
+				canEdit={isCurrentUserCreatedThisPool}
+			/>
 
-      <AuctionFiles
-        poolInfo={poolInfo}
-        getPoolInfo={getPoolInfo}
-        canDownloadFile={!isCurrentUserCreatedThisPool}
-        canDeleteFile={isCurrentUserCreatedThisPool}
-        canAddFile={isCurrentUserCreatedThisPool}
-      />
-    </Box>
-  )
+			<AuctionFiles
+				poolInfo={poolInfo}
+				getPoolInfo={getPoolInfo}
+				canDownloadFile={!isCurrentUserCreatedThisPool}
+				canDeleteFile={isCurrentUserCreatedThisPool}
+				canAddFile={isCurrentUserCreatedThisPool}
+			/>
+		</Box>
+	)
 }
 
 export default CreatorInfoCard

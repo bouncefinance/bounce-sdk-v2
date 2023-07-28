@@ -1,6 +1,5 @@
 import { useRequest } from 'ahooks'
 
-import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useLinkedIn } from 'react-linkedin-login-oauth2'
 import { addressRegisterOrLogin, login, logout } from '@/api/user'
@@ -12,7 +11,6 @@ import {
 	ICacheLoginInfo,
 } from '@/state/users/reducer'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { AppState } from '@/state'
 import { routes } from '@/constants/routes'
 import { useCallback, useEffect, useState } from 'react'
@@ -21,6 +19,7 @@ import { useActiveWeb3React } from '@/hooks'
 import { IResponse } from '@/api/type'
 import { useSignLoginModalToggle, useWalletModalToggle } from '@/state/application/hooks'
 import { useQueryParams } from '@/hooks/useQueryParams'
+import { useDispatch, useSelector } from '@/global'
 
 // export const hellojs = typeof window !== 'undefined' ? require('hellojs') : null
 export const hellojs = null

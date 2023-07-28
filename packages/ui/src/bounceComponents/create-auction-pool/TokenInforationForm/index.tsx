@@ -16,7 +16,7 @@ import { getEtherscanLink } from '@/utils'
 import { Token } from '@/bounceComponents/fixed-swap/type'
 import useBreakpoint from '@/hooks/useBreakpoint'
 import { AuctionPool, CreationStep } from '../types'
-import { withBounceTheme } from '@/themes'
+import { withBounceTheme } from '@/global'
 
 interface FormValues {
 	tokenFromAddress: string

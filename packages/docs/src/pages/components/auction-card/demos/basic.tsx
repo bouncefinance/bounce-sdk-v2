@@ -4,7 +4,9 @@ import {
 	AuctionListItem,
 	AuctionCardProps,
 	PoolStatus,
+	BounceProvider,
 } from '@bouncefinance/ui'
+import { Web3Provider } from '@ethersproject/providers'
 
 export default () => {
 	const props: AuctionCardProps = {
@@ -27,12 +29,13 @@ export default () => {
 		poolId: '9',
 		progress: {
 			symbol: 'CZ',
-			decimals: 18,
+			decimals: '18',
 			sold: '0',
 			supply: '10000000000000000000',
 		},
 		status: PoolStatus.Cancelled,
 		style: {
+			width: '312px',
 			minWidth: 'unset',
 		},
 		title: 'cz2eth2',
@@ -44,15 +47,17 @@ export default () => {
 			id: 5,
 			shortName: 'sepolia',
 		},
-		style: { width: '312px', minWidth: 'unset' },
+		chainId: 1,
 	}
 	return (
-		<div className="flex flex-wrap gap-5">
-			<AuctionCard {...props} isCreator />
-			<AuctionCard {...props} {...{ status: PoolStatus.Closed }} />
-			<AuctionCard {...props} {...{ status: PoolStatus.Finish }} />
-			<AuctionCard {...props} {...{ status: PoolStatus.Live }} />
-			<AuctionCard {...props} {...{ status: PoolStatus.Upcoming }} />
-		</div>
+		<BounceProvider getLibrary={(provider) => new Web3Provider(provider, 'any')}>
+			<div className="flex flex-wrap gap-5">
+				<AuctionCard {...props} isCreator />
+				<AuctionCard {...props} {...{ status: PoolStatus.Closed }} />
+				<AuctionCard {...props} {...{ status: PoolStatus.Finish }} />
+				<AuctionCard {...props} {...{ status: PoolStatus.Live }} />
+				<AuctionCard {...props} {...{ status: PoolStatus.Upcoming }} />
+			</div>
+		</BounceProvider>
 	)
 }

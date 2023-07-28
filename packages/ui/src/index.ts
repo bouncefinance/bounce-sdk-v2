@@ -1,9 +1,21 @@
-export * from './components'
-export * from './bounceComponents'
-export * from './Provider'
-export { PoolStatus } from './api/pool'
+export {
+	AuctionCard,
+	CreateAuctionPool,
+	AuctionHolder,
+	AuctionListItem,
+	TokenType,
+	AuctionType,
+	FixedSwapAuctionDetail,
+} from './bounceComponents'
+export type {
+	AuctionCardProps,
+	CreateAuctionPoolProps,
+	FixedSwapAuctionDetailProps,
+} from './bounceComponents'
+export { BounceProvider } from './global'
+export { PoolStatus, PoolType } from './api'
 export { BackedTokenType } from './enums'
-
+export { usePoolInfo } from './bounceHooks'
 // import { StrictMode } from 'react'
 // import { createRoot } from 'react-dom/client'
 // import 'inter-ui'

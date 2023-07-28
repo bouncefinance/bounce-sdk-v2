@@ -17,7 +17,7 @@ import { isSupportedAuctionType } from '@/constants/auction'
 
 import useBreakpoint from '@/hooks/useBreakpoint'
 import { Erc1155Pool, Erc20Pool, Erc721Pool, RandomSelection } from './pools'
-import { withBounceTheme } from '@/themes'
+import { withBounceTheme } from '@/global'
 import { useActiveWeb3React } from '@/hooks'
 
 export interface CreateAuctionPoolProps {

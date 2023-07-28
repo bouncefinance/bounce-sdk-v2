@@ -1,6 +1,6 @@
 {
 	"extends": [/* "plugin:prettier/recommended", */ "alloy", "alloy/typescript", "alloy/react"],
-	// "plugins": ["unused-imports" /*,"prettier"*/],
+	"plugins": ["unused-imports" /*,"prettier"*/],
 	"parserOptions": {
 		// "project": "tsconfig.json",
 		"parser": {
@@ -60,7 +60,7 @@
 		"@typescript-eslint/no-invalid-void-type": "off",
 		"react/no-unstable-nested-components": "off", // 打开会导致tsx不能使用嵌套组件
 		"react/no-children-prop": "off",
-		"unused-imports/no-unused-imports": "off",
+		"unused-imports/no-unused-imports": "warn",
 		"unused-imports/no-unused-vars": [
 			"off",
 			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }

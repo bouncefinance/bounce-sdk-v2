@@ -3,13 +3,13 @@ import React, { CSSProperties, ReactNode } from 'react'
 import { useCountDown } from 'ahooks'
 import moment from 'moment'
 import Image from '../../../components/Image'
-import { AuctionProgress, IAuctionProgressProps } from './AuctionProgress'
+import { AuctionProgress, AuctionProgressProps } from './AuctionProgress'
 import styles from './styles'
 import PoolStatusBox from '@/bounceComponents/fixed-swap/ActionBox/PoolStatus'
 import { PoolStatus } from '@/api/pool/type'
 import { ChainId, ChainListMap } from '@/constants/chain'
-import { ChainInfoOpt } from '@/api/user/type'
-import { withBounceTheme } from '@/themes'
+import { withBounceTheme } from '@/global'
+import useChainConfigInBackend from '@/bounceHooks/web3/useChainConfigInBackend'
 
 export type AuctionCardProps = {
 	/**
@@ -23,7 +23,7 @@ export type AuctionCardProps = {
 	 */
 	title: string
 	holder?: ReactNode
-	progress?: Omit<IAuctionProgressProps, 'status'>
+	progress?: Omit<AuctionProgressProps, 'status'>
 	listItems?: ReactNode
 	claimAt: number
 	closeAt: number
@@ -34,7 +34,7 @@ export type AuctionCardProps = {
 	isCreator?: boolean
 	whiteList: string
 	style?: CSSProperties
-	chainConfigInBackend?: ChainInfoOpt | null
+	chainId: number
 }
 
 export const AuctionCard: React.FC<AuctionCardProps> = withBounceTheme(
@@ -55,10 +55,11 @@ export const AuctionCard: React.FC<AuctionCardProps> = withBounceTheme(
 		listItems,
 		style,
 		claimAt,
-		chainConfigInBackend,
+		chainId,
 	}) => {
 		// const chainConfigInBackend = useContext()
-		// const chainConfigInBackend = {}
+		const chainConfigInBackend = useChainConfigInBackend('id', chainId)
+		console.log('🚀 ~ chainConfigInBackend:', chainConfigInBackend)
 		const [, { days, hours, minutes, seconds }] = useCountDown({ targetDate: claimAt * 1000 })
 
 		const showClaim = () => {

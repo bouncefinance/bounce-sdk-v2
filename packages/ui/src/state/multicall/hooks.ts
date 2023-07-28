@@ -3,7 +3,6 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
 import { ZERO_ADDRESS } from '../../constants'
 import { useEffect, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { useActiveWeb3React } from '../../hooks'
 import { useBlockNumber } from '../application/hooks'
 import { AppDispatch, AppState } from '../index'
@@ -16,6 +15,7 @@ import {
 	ListenerOptions,
 } from './actions'
 import { ChainId } from '@/constants/chain'
+import { useDispatch, useSelector } from '@/global'
 
 export interface Result extends ReadonlyArray<any> {
 	readonly [key: string]: any
