@@ -32,20 +32,21 @@ export default createTheme({
 		const theme = useThemeCtx()
 		const { resolvedLocale } = theme
 		useEffect(() => {
-			ReactGA.event({
-				category: 'switch_lang',
-				action: 'lang',
-				label: '切换语言', // optional
-				value: 100, // optional, must be a number
-				nonInteraction: false, // optional, true/false
-				transport: 'xhr',
+			ReactGA.event('switch_lang', {
+				lang: resolvedLocale.localeKey,
 			}) // optional, beacon/xhr/imagedd'switch_lang', resolvedLocale.localeKey)
 			// console.log('🚀 ~ resolvedLocale.localeKey:', resolvedLocale.localeKey)
+			ReactGA.event({
+				category: 'Language',
+				action: 'Change Language',
+				label: resolvedLocale.localeKey,
+			})
 		}, [resolvedLocale.localeKey])
 		// 	const isEN = theme.resolvedLocale.localeKey === 'en'
 		useEffect(() => {
 			console.log('🚀 ~ pathname:', pathname)
 			ReactGA.send({ hitType: 'pageview', page: pathname, title: document.title })
+			ReactGA.send({ hitType: 'pageview1', page: pathname, title: document.title })
 		}, [pathname])
 		useEffect(() => {
 			ReactGA.initialize('G-3T4CP7XLR0')
