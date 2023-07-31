@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from 'react'
+import React, { PropsWithChildren } from 'react'
 import { createTheme, defaultSideNavs, useThemeCtx } from 'vite-pages-theme-doc'
 
 import Component404 from './404'
@@ -7,6 +7,7 @@ import 'uno.css'
 import '../styles/index.less'
 import ReactGA from 'react-ga4'
 import { useLocation } from 'react-router-dom'
+import { useUpdateEffect } from 'ahooks'
 
 ReactGA.initialize('G-3T4CP7XLR0')
 
@@ -31,26 +32,11 @@ export default createTheme({
 		const { pathname } = useLocation()
 		const theme = useThemeCtx()
 		const { resolvedLocale } = theme
-		useEffect(() => {
-			ReactGA.event('switch_lang', {
-				lang: resolvedLocale.localeKey,
-			}) // optional, beacon/xhr/imagedd'switch_lang', resolvedLocale.localeKey)
-			// console.log('🚀 ~ resolvedLocale.localeKey:', resolvedLocale.localeKey)
-			ReactGA.event({
-				category: 'Language',
-				action: 'Change Language',
-				label: resolvedLocale.localeKey,
+		useUpdateEffect(() => {
+			ReactGA.event('change_language', {
+				event_label: resolvedLocale.localeKey,
 			})
 		}, [resolvedLocale.localeKey])
-		// 	const isEN = theme.resolvedLocale.localeKey === 'en'
-		useEffect(() => {
-			console.log('🚀 ~ pathname:', pathname)
-			ReactGA.send({ hitType: 'pageview', page: pathname, title: document.title })
-			ReactGA.send({ hitType: 'pageview1', page: pathname, title: document.title })
-		}, [pathname])
-		useEffect(() => {
-			ReactGA.initialize('G-3T4CP7XLR0')
-		}, [])
 		return props?.children
 	},
 	i18n: {
