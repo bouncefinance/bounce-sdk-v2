@@ -1,11 +1,9 @@
 import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
-import Unocss from 'unocss/vite'
 // import dts from 'vite-plugin-dts'
 import svgr from 'vite-plugin-svgr'
 import typescript from '@rollup/plugin-typescript'
-import nodePolyfills from 'rollup-plugin-node-polyfills'
 // import typescript from 'rollup-plugin-typescript2'
 // import ttypescript from 'ttypescript'
 // import presetAttributify from '@unocss/preset-attributify'
@@ -76,6 +74,7 @@ export default ({ mode }) => {
 				},
 			},
 		},
+		esbuild: { drop: ['console', 'debugger'] },
 		build: {
 			// sourcemap:true
 			lib: {
