@@ -24,7 +24,6 @@ export interface CreateAuctionPoolProps {
 	tokenType: TokenType
 	auctionType: AuctionType
 	auctionInChainId: ChainId
-	account?: string | null
 }
 
 const steps = ['1. Token Information', '2. Auction Parameters', '3. Advanced Settings']
@@ -74,7 +73,10 @@ const InteralCreateAuctionPool = () => {
 			valuesState.tokenType === TokenType.ERC20 ? (
 				<RandomSelection />
 			) : null}
-			{valuesState.tokenType === TokenType.ERC721 ? <Erc721Pool /> : null}
+			{valuesState.auctionType === AuctionType.ENGLISH_AUCTION &&
+			valuesState.tokenType === TokenType.ERC721 ? (
+				<Erc721Pool />
+			) : null}
 		</RoundedContainer>
 	)
 }

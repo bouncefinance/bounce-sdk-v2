@@ -17,36 +17,28 @@ export default () => {
 		holder: (
 			<AuctionHolder
 				{...{
-					avatar: 'https://example.com/avatar.jpg',
-					name: 'AI助手',
-					description: '我是一个智能AI助手，可以回答您的问题。',
-					href: 'https://example.com/profile',
+					avatar: 'https://nft-auction.com/assets/avatar.png',
+					name: 'NFT Auction House',
+					description: 'Premier NFT auction platform',
+					href: 'https://nft-auction.com',
 					isVerify: 1,
 				}}
 			/>
 		),
 		listItems: <AuctionListItem label="lable" value="value" />,
-		poolId: '9',
+		poolId: '456',
 		progress: {
-			symbol: 'CZ',
+			symbol: 'ETH',
 			decimals: '18',
-			sold: '0',
-			supply: '10000000000000000000',
+			sold: '0.2',
+			supply: '1',
 		},
 		status: PoolStatus.Cancelled,
 		style: {
 			width: '312px',
-			minWidth: 'unset',
 		},
-		title: 'cz2eth2',
-		whiteList: 'Public',
-		chainConfigInBackend: {
-			chainName: 'Sepolia',
-			chain_type: 1,
-			ethChainId: 11155111,
-			id: 5,
-			shortName: 'sepolia',
-		},
+		title: 'CryptoPunk #245',
+		whiteList: 'Invited Bidders',
 		chainId: 1,
 	}
 	return (

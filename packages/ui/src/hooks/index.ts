@@ -36,13 +36,18 @@ import { injected } from '../connectors'
 import { NetworkContextName } from '../constants'
 import { ChainId } from '../constants/chain'
 import { isInjectedConnected } from '@/utils/isInjectedConnectedPrev'
+import { useMainContext } from '@/context'
 
 export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & {
 	chainId?: ChainId
 } {
 	const context = useWeb3ReactCore<Web3Provider>()
+
 	const contextNetwork = useWeb3ReactCore<Web3Provider>(NetworkContextName)
-	return context.active ? context : contextNetwork
+	const mainContext = useMainContext()
+	// return docsContext
+	return { ...(context.active ? context : contextNetwork), ...mainContext }
+	// return docsContext || context.active ? context : contextNetwork
 }
 
 export function useEagerConnect() {

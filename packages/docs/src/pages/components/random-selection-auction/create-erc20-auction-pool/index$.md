@@ -1,9 +1,9 @@
 ---
-title: Create Auction Pool
-subGroup: general
+title: Create Erc20 Auction Pool
+subGroup: randomSelectionAuction
 ---
 
-# Create Auction Pool
+# Create Erc20 Fixed Swap Auction Pool
 
 ## Demos
 

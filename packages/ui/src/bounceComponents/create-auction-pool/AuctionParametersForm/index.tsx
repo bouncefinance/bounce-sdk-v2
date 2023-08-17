@@ -14,13 +14,12 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 
 import { show } from '@ebay/nice-modal-react'
 
-import { AllocationStatus, CreationStep } from '../types'
+import { AllocationStatus } from '../types'
 import FakeOutlinedInput from '../FakeOutlinedInput'
 import TokenDialog from '../TokenDialog'
 import {
 	ActionType,
 	useAuctionERC20Currency,
-	useAuctionInChain,
 	useValuesDispatch,
 	useValuesState,
 } from '../ValuesProvider'
@@ -33,13 +32,13 @@ import FormItem from '@/bounceComponents/common/FormItem'
 import Tooltip from '@/bounceComponents/common/Tooltip'
 import TokenImage from '@/bounceComponents/common/TokenImage'
 import { ChainId } from '@/constants/chain'
-import { useActiveWeb3React } from '@/hooks'
 import { CurrencyAmount } from '@/constants/token'
 import { useCurrencyBalance } from '@/state/wallet/hooks'
 import { ZERO } from '@/constants/token/constants'
 import { Token } from '@/bounceComponents/fixed-swap/type'
 import NumberInput from '@/bounceComponents/common/NumberInput'
 import useBreakpoint from '@/hooks/useBreakpoint'
+import { useActiveWeb3React } from '@/hooks'
 
 interface FormValues {
 	tokenFromAddress: string
@@ -57,10 +56,10 @@ interface FormValues {
 }
 
 const AuctionParametersForm = (): JSX.Element => {
-	// const { account } = useActiveWeb3React()
+	const { account } = useActiveWeb3React()
 	// const auctionInChainId = useAuctionInChain()
 	const valuesState = useValuesState()
-	const { auctionInChainId, account } = valuesState
+	const { auctionInChainId } = valuesState
 	const { currencyFrom } = useAuctionERC20Currency()
 	const balance = useCurrencyBalance(account || undefined, currencyFrom, auctionInChainId)
 
@@ -381,10 +380,7 @@ const AuctionParametersForm = (): JSX.Element => {
 									onClick={() => {
 										// window.history.back()
 										valuesDispatch({
-											type: ActionType.HandleStep,
-											payload: {
-												activeStep: CreationStep.TOKEN_INFORMATION,
-											},
+											type: ActionType.PrevStep,
 										})
 									}}
 								>

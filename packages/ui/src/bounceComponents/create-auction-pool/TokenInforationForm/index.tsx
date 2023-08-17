@@ -2,21 +2,20 @@ import { Button, Stack, Box, Typography, ButtonBase } from '@mui/material'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 
-import { show, register } from '@ebay/nice-modal-react'
+import { show } from '@ebay/nice-modal-react'
 import TokenDialog from '../TokenDialog'
 import FakeOutlinedInput from '../FakeOutlinedInput'
-import { ActionType, useAuctionInChain, useValuesDispatch, useValuesState } from '../ValuesProvider'
+import { ActionType, useValuesDispatch, useValuesState } from '../ValuesProvider'
 import FormItem from '@/bounceComponents/common/FormItem'
 
 // import ErrorSVG from '@/assets/imgs/icon/error_filled.svg'
 import TokenImage from '@/bounceComponents/common/TokenImage'
-import { useActiveWeb3React } from '@/hooks'
 import { ChainId } from '@/constants/chain'
 import { getEtherscanLink } from '@/utils'
 import { Token } from '@/bounceComponents/fixed-swap/type'
 import useBreakpoint from '@/hooks/useBreakpoint'
-import { AuctionPool, CreationStep } from '../types'
 import { withBounceTheme } from '@/global'
+import { useActiveWeb3React } from '@/hooks'
 
 interface FormValues {
 	tokenFromAddress: string
@@ -31,7 +30,6 @@ export const TokenInformationForm = withBounceTheme(
 		})
 
 		const values = useValuesState()
-		console.log('🚀 ~ values:', values)
 		const valuesDispatch = useValuesDispatch()
 
 		const internalInitialValues: FormValues = {
@@ -41,7 +39,8 @@ export const TokenInformationForm = withBounceTheme(
 			tokenFromDecimals: values.tokenFrom.decimals || '',
 		}
 
-		const { account, auctionInChainId } = values
+		const { auctionInChainId } = values
+		const { account } = useActiveWeb3React()
 		// const auctionInChainId = useAuctionInChain()
 		const isSm = useBreakpoint('sm')
 		const showTokenDialog = (
@@ -140,7 +139,7 @@ export const TokenInformationForm = withBounceTheme(
 								</ButtonBase>
 
 								<Stack direction="row" spacing={10} justifyContent="end">
-									<Button
+									{/* <Button
 										variant="outlined"
 										sx={{ width: 140 }}
 										onClick={() => {
@@ -154,7 +153,7 @@ export const TokenInformationForm = withBounceTheme(
 										}}
 									>
 										Cancel
-									</Button>
+									</Button> */}
 
 									<Button type="submit" variant="contained" sx={{ width: 140 }}>
 										Next

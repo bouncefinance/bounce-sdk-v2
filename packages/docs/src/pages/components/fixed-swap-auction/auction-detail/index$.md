@@ -1,6 +1,6 @@
 ---
 title: Fixed Swap Auction Detail
-subGroup: general
+subGroup: fixedSwapAuction
 ---
 
 # Fixed Swap Auction Detail

@@ -162,6 +162,18 @@ export default createTheme({
 						label: 'General',
 						order: 1,
 					},
+					fixedSwapAuction: {
+						label: 'Fixed Swap Auction',
+						order: 2,
+					},
+					randomSelectionAuction: {
+						label: 'Random Selection Auction',
+						order: 2,
+					},
+					englishAuction: {
+						label: 'English Auction',
+						order: 2,
+					},
 					'data-display': {
 						label: 'Data Display',
 						order: 2,

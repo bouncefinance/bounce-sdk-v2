@@ -7,7 +7,6 @@ import {
 	createContext,
 	Dispatch,
 	PropsWithChildren,
-	ReactNode,
 	useContext,
 	useEffect,
 	useMemo,
@@ -149,6 +148,7 @@ export enum ActionType {
 	CommitAdvancedSettings = 'COMMIT_ADVANCED_SETTINGS',
 	HandleStep = 'HANDLE_STEP',
 	SetWhitelist = 'SET_WHITELIST',
+	PrevStep = 'PREV_STEP',
 }
 
 type Payload = {
@@ -227,6 +227,7 @@ type Payload = {
 	[ActionType.SetWhitelist]: {
 		whitelist: string[]
 	}
+	[ActionType.PrevStep]: {}
 }
 
 type ActionMap<M extends { [index: string]: any }> = {
@@ -356,6 +357,11 @@ const reducer = (state: AuctionPool, action: Actions) => {
 				...state,
 				auctionType: action.payload.auctionType,
 			}
+		case ActionType.PrevStep:
+			return {
+				...state,
+				activeStep: state.activeStep - 1,
+			}
 		default:
 			return state
 	}
@@ -375,7 +381,7 @@ const ValuesProvider = ({
 				<ValuesDispatchContext.Provider value={dispatch}>{children}</ValuesDispatchContext.Provider>
 			</ValuesStateContext.Provider>
 		),
-		[defaultState, state, children, dispatch],
+		[defaultState, state, children],
 	)
 }
 

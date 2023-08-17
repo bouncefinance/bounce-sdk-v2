@@ -95,6 +95,6 @@ export interface AuctionPool {
 	ticketPrice?: string
 	maxParticipantAllowed?: number
 	enableReverse?: boolean
-	account?: string | null
 	auctionInChainId: ChainId
+	launchPad?: boolean
 }
