@@ -13,7 +13,6 @@ import { getPools } from '@/api/market'
 import { routes } from '@/constants/routes'
 import { useOptionDatas } from '@/state/configOptions/hooks'
 import FooterPc from '@/components/Footer/FooterPc'
-import { useNavigate } from 'react-router-dom'
 import AuctionCard, { AuctionHolder, AuctionListItem } from '@/bounceComponents/common/AuctionCard'
 import { useActiveWeb3React } from '@/hooks'
 import TokenImage from '@/bounceComponents/common/TokenImage'
@@ -25,7 +24,6 @@ import { formatNumber } from '@/utils/number'
 import FixedSelected from '@/components/FixedSelected'
 import EmptyData from '@/bounceComponents/common/EmptyData'
 import CertifiedTokenImage from '@/components/CertifiedTokenImage'
-import getAuctionPoolLink from '@/utils/auction/getAuctionPoolRouteLink'
 import { poolTypeText } from '@/pages/market/pools'
 import useBreakpoint from '@/hooks/useBreakpoint'
 import MobileFixedSelected from '@/components/FixedSelected/mobileFixedSelected'
@@ -247,7 +245,7 @@ const NFTAuctionListDialog = (props: DialogParams) => {
 	useEffect(() => {
 		open && handleSubmit(filterValues)
 	}, [handleSubmit, open, filterValues])
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const isSm = useBreakpoint('sm')
 	return (
 		<NFTDialog
@@ -297,16 +295,16 @@ const NFTAuctionListDialog = (props: DialogParams) => {
 								{poolsData?.list?.map((fixedSwaptem: any, index: number) => (
 									<Grid item xs={12} sm={6} md={3} lg={3} xl={3} key={index}>
 										<Box
-											onClick={() =>
-												navigate(
-													getAuctionPoolLink(
-														fixedSwaptem.id,
-														fixedSwaptem.category,
-														fixedSwaptem.chainId,
-														fixedSwaptem.poolId,
-													),
-												)
-											}
+										// onClick={() =>
+										// 	navigate(
+										// 		getAuctionPoolLink(
+										// 			fixedSwaptem.id,
+										// 			fixedSwaptem.category,
+										// 			fixedSwaptem.chainId,
+										// 			fixedSwaptem.poolId,
+										// 		),
+										// 	)
+										// }
 										>
 											<AuctionCard
 												style={{ minWidth: 'unset' }}

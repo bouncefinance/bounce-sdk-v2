@@ -3,7 +3,6 @@ import React from 'react'
 import VerifiedIcon from '../VerifiedIcon'
 import DefaultAvatarSVG from '../../../assets/imgs/profile/yellow_avatar.svg'
 import { VerifyStatus } from '../../../api/profile/type'
-import { useNavigate } from 'react-router-dom'
 
 export interface AuctionHolderProps {
 	avatar: string
@@ -20,7 +19,7 @@ export const AuctionHolder: React.FC<AuctionHolderProps> = ({
 	href,
 	isVerify,
 }) => {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	return (
 		<Stack
 			direction="row"
@@ -28,7 +27,7 @@ export const AuctionHolder: React.FC<AuctionHolderProps> = ({
 			spacing={12}
 			onClick={(ev) => {
 				ev.preventDefault()
-				navigate(href)
+				// navigate(href)
 			}}
 			sx={{
 				px: 10,

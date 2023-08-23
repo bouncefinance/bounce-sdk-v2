@@ -11,7 +11,6 @@ import { useOptionDatas } from '../../../state/configOptions/hooks'
 import { BackedTokenType } from '@/enums'
 import EmptyData from '../EmptyData'
 import { getTextFromPoolType } from '../../../api/pool/type'
-import { useNavigate } from 'react-router-dom'
 import getAuctionPoolLink from '../../../utils/auction/getAuctionPoolRouteLink'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 import CustomMobileTable from '../../../components/Table/CustomMobileTable'
@@ -329,7 +328,8 @@ export const AuctionRankCard: React.FC = () => {
 	const optionDatas = useOptionDatas()
 	const action = Tabs.indexOf(currentTab) + 1
 	const [chainFilter, setChainFilter] = useState<number>(0)
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
+	const navigate = () => {}
 	const TableHeader = isSm ? ['Auction', 'Status'] : ['Auction', 'Asset', 'Auction', 'Status']
 	const { data } = useRequest(
 		async () => {

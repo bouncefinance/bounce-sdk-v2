@@ -6,8 +6,6 @@ import { ChainListMap } from '@/constants/chain'
 import Favorite from '@/bounceComponents/common/Favorite'
 import { useUserInfo } from '@/state/users/hooks'
 import { FixedSwapPoolParams } from '@/bounceComponents/fixed-swap-nft/MainBlock/UserMainBlock'
-import BackIcon from '@/assets/images/back.png'
-import { useNavigate } from 'react-router-dom'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 const styles = {
 	p: '7px 16px',
@@ -21,7 +19,7 @@ const styles = {
 const Header = ({ poolInfo, getPoolInfo }: FixedSwapPoolParams): JSX.Element => {
 	const { userId } = useUserInfo()
 	const isMobile = useBreakpoint('lg')
-	const navigator = useNavigate()
+	// const navigator = useNavigate()
 	if (!poolInfo.ethChainId) return <></>
 	return (
 		<Box
@@ -104,7 +102,7 @@ const Header = ({ poolInfo, getPoolInfo }: FixedSwapPoolParams): JSX.Element => 
 			{isMobile && (
 				<>
 					<Box>
-						<Image
+						{/* <Image
 							style={{
 								cursor: 'pointer',
 							}}
@@ -114,7 +112,7 @@ const Header = ({ poolInfo, getPoolInfo }: FixedSwapPoolParams): JSX.Element => 
 							onClick={() => {
 								navigator(-1)
 							}}
-						/>
+						/> */}
 						<Typography variant="h1" sx={{ fontSize: 30 }}>
 							{poolInfo?.name} Random-Selection Pool
 						</Typography>
