@@ -23,7 +23,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import BigNumber from 'bignumber.js'
 import { ReactComponent as SearchSVG } from '@/assets/imgs/companies/search.svg'
 import CopyToClipboard from '@/bounceComponents/common/CopyToClipboard'
-import AuctionCard, { AuctionHolder, AuctionListItem } from '@/bounceComponents/common/AuctionCard'
+import { AuctionCard, AuctionHolder, AuctionListItem } from '@/bounceComponents/common/AuctionCard'
 import FormItem from '@/bounceComponents/common/FormItem'
 import TokenImage from '@/bounceComponents/common/TokenImage'
 import { PoolType } from '@/api/pool/type'
@@ -321,9 +321,9 @@ const Pools: React.FC = ({}) => {
 												<FormItem name="poolStatus" label="Pool Status" sx={{ width: 190 }}>
 													<Select>
 														<MenuItem value={0}>All Status</MenuItem>
-														<MenuItem value={'live'}>Live</MenuItem>
-														<MenuItem value={'upcoming'}>Upcoming</MenuItem>
-														<MenuItem value={'finished'}>Closed</MenuItem>
+														<MenuItem value="live">Live</MenuItem>
+														<MenuItem value="upcoming">Upcoming</MenuItem>
+														<MenuItem value="finished">Closed</MenuItem>
 													</Select>
 												</FormItem>
 												<FormItem name="auctionType" label="Auction type" sx={{ width: 190 }}>
@@ -528,7 +528,7 @@ const Pools: React.FC = ({}) => {
 											)}
 
 											{poolsData?.total >= defaultIdeaPageSize && (
-												<Box mt={58} display={'flex'} justifyContent={'center'}>
+												<Box mt={58} display="flex" justifyContent="center">
 													<Pagination
 														onChange={handlePageChange}
 														count={Math.ceil(poolsData?.total / defaultIdeaPageSize) || 0}

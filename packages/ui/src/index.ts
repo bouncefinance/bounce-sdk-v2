@@ -1,3 +1,5 @@
+export { TypesOfAuctionOverview } from './components'
+
 export {
 	AuctionCard,
 	CreateAuctionPool,
@@ -6,11 +8,13 @@ export {
 	TokenType,
 	AuctionType,
 	FixedSwapAuctionDetail,
+	RandomSelectionAuctionDetail,
 } from './bounceComponents'
 export type {
 	AuctionCardProps,
 	CreateAuctionPoolProps,
 	FixedSwapAuctionDetailProps,
+	RandomSelectionAuctionDetailProps,
 } from './bounceComponents'
 export { BounceProvider } from './global'
 export { PoolStatus, PoolType } from './api'

@@ -1,18 +1,19 @@
 import { FixedSwapPoolProp, PoolType } from '@/api/pool/type'
 import { Currency, CurrencyAmount } from '@/constants/token'
-import { useActiveWeb3React, useQueryParams } from '@/hooks'
+import { useActiveWeb3React } from '@/hooks'
 import { useSingleCallResult } from '@/state/multicall/hooks'
 import { useRandomSelectionERC20Contract } from '@/hooks/useContract'
 import { useMemo } from 'react'
 import { useBackedPoolInfo } from './usePoolInfo'
+import { PoolInfoParams } from '@/types'
 
-const useRandomSelectionPoolInfo = () => {
-	const query = useQueryParams()
+const useRandomSelectionPoolInfo = (options?: PoolInfoParams) => {
+	// const query = useQueryParams()
 	const {
 		data: poolInfo,
 		run: getPoolInfo,
 		loading,
-	} = useBackedPoolInfo({ category: PoolType.ENGLISH_AUCTION_NFT, ...query })
+	} = useBackedPoolInfo({ category: PoolType.ENGLISH_AUCTION_NFT, ...options })
 	const randomSelectionERC20Contract = useRandomSelectionERC20Contract(
 		poolInfo?.contract || '',
 		poolInfo?.ethChainId,

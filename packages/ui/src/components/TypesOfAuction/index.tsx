@@ -38,6 +38,7 @@ import { PoolType } from '@/api/pool/type'
 import PoolListDialog from '@/pages/tokenAuction/components/listDialog'
 import NftListDialog from '@/pages/nftAuction/components/listDialog'
 import useBreakpoint from '../../hooks/useBreakpoint'
+import { withBounceTheme } from '@/global'
 interface AuctionItemParams {
 	title: string
 	defaultImg: string
@@ -88,111 +89,107 @@ const AuctionItem = (props: AuctionItemParams) => {
 				}
 			}}
 		>
-			{
-				<Box
+			<Box
+				sx={{
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					width: [152, 230],
+					height: [90, 110],
+					background: 'var(--ps-text-3)',
+					borderRadius: 24,
+					display: 'flex',
+					flexFlow: 'column nowrap',
+					justifyContent: 'center',
+					alignItems: 'center',
+					transform: !isHover ? 'rotateX(0)' : 'rotateX(90deg)',
+					transition: 'all 0.6s',
+				}}
+			>
+				<img
+					src={defaultImg}
+					style={{
+						display: 'block',
+						width: 24,
+					}}
+					alt=""
+				/>
+				<Typography
 					sx={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						width: [152, 230],
-						height: [90, 110],
-						background: 'var(--ps-text-3)',
-						borderRadius: 24,
-						display: 'flex',
-						flexFlow: 'column nowrap',
-						justifyContent: 'center',
-						alignItems: 'center',
-						transform: !isHover ? 'rotateX(0)' : 'rotateX(90deg)',
-						transition: 'all 0.6s',
+						fontFamily: `'Inter'`,
+						fontWeight: 400,
+						fontSize: 14,
+						textAlign: 'center',
+						color: '#fff',
+					}}
+				>
+					{title}
+				</Typography>
+			</Box>
+			<Box
+				sx={{
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					width: [152, 230],
+					height: [90, 110],
+					background: 'var(--ps-yellow-1)',
+					borderRadius: 24,
+					display: 'flex',
+					flexFlow: 'column nowrap',
+					justifyContent: 'center',
+					alignItems: 'flex-start',
+					padding: { xs: '12px 8px', md: '12px 16px' },
+					transform: isHover ? 'rotateX(0)' : 'rotateX(90deg)',
+					transition: 'all 0.6s',
+				}}
+			>
+				<Typography
+					sx={{
+						fontFamily: `'Inter'`,
+						fontWeight: 400,
+						fontSize: 13,
+						color: 'var(--ps-text-3)',
+						lineHeight: '24px',
+						marginBottom: { xs: 0, md: 15 },
+						whiteSpace: 'nowrap',
 					}}
 				>
 					<img
-						src={defaultImg}
+						src={hoverImg}
 						style={{
-							display: 'block',
+							display: 'inline-block',
 							width: 24,
+							verticalAlign: 'middle',
+							marginRight: isSm ? 4 : 12,
 						}}
 						alt=""
 					/>
-					<Typography
-						sx={{
-							fontFamily: `'Inter'`,
-							fontWeight: 400,
-							fontSize: 14,
-							textAlign: 'center',
-							color: '#fff',
-						}}
-					>
-						{title}
-					</Typography>
-				</Box>
-			}
-			{
-				<Box
+					{title}
+				</Typography>
+				<Typography
 					sx={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						width: [152, 230],
-						height: [90, 110],
-						background: 'var(--ps-yellow-1)',
-						borderRadius: 24,
-						display: 'flex',
-						flexFlow: 'column nowrap',
-						justifyContent: 'center',
-						alignItems: 'flex-start',
-						padding: { xs: '12px 8px', md: '12px 16px' },
-						transform: isHover ? 'rotateX(0)' : 'rotateX(90deg)',
-						transition: 'all 0.6s',
+						fontFamily: `'Inter'`,
+						fontWeight: 400,
+						fontSize: 12,
+						color: 'var(--ps-text-1)',
+						lineHeight: '17px',
 					}}
 				>
-					<Typography
-						sx={{
-							fontFamily: `'Inter'`,
-							fontWeight: 400,
-							fontSize: 13,
-							color: 'var(--ps-text-3)',
-							lineHeight: '24px',
-							marginBottom: { xs: 0, md: 15 },
-							whiteSpace: 'nowrap',
-						}}
-					>
-						<img
-							src={hoverImg}
-							style={{
-								display: 'inline-block',
-								width: 24,
-								verticalAlign: 'middle',
-								marginRight: isSm ? 4 : 12,
-							}}
-							alt=""
-						/>
-						{title}
-					</Typography>
-					<Typography
-						sx={{
-							fontFamily: `'Inter'`,
-							fontWeight: 400,
-							fontSize: 12,
-							color: 'var(--ps-text-1)',
-							lineHeight: '17px',
-						}}
-					>
-						total value
-					</Typography>
-					<Typography
-						sx={{
-							fontFamily: `'Public Sans'`,
-							fontWeight: 600,
-							fontSize: 20,
-							color: 'var(--ps-text-3)',
-							lineHeight: '28px',
-						}}
-					>
-						${totalValue}
-					</Typography>
-				</Box>
-			}
+					total value
+				</Typography>
+				<Typography
+					sx={{
+						fontFamily: `'Public Sans'`,
+						fontWeight: 600,
+						fontSize: 20,
+						color: 'var(--ps-text-3)',
+						lineHeight: '28px',
+					}}
+				>
+					${totalValue}
+				</Typography>
+			</Box>
 		</Box>
 	)
 }
@@ -254,7 +251,7 @@ const FixBtn = styled(Button)(() => ({
 	},
 }))
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
+const TypesOfAuction: React.FC<Notable1155Props> = withBounceTheme(({ handleViewAll }) => {
 	const isSm = useBreakpoint('sm')
 	const theme = useTheme()
 	const [fixBtn, setFixBtn] = useState(false)
@@ -406,7 +403,7 @@ const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
 		<>
 			{/* Types of Auction On Bounce Finance */}
 			<Box
-				id={'typesOfAuction'}
+				id="typesOfAuction"
 				sx={{
 					width: '100%',
 					maxWidth: 1440,
@@ -418,7 +415,8 @@ const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
 					position: 'relative',
 				}}
 			>
-				<FixBtn
+				{/* TODO:  */}
+				{/* <FixBtn
 					className={fixBtnClassName}
 					onClick={() => {
 						handleViewAll && handleViewAll()
@@ -443,7 +441,7 @@ const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
 					}
 				>
 					View all auctions
-				</FixBtn>
+				</FixBtn> */}
 				<Typography
 					sx={{
 						color: 'var(--ps-yellow-1)',
@@ -626,7 +624,7 @@ const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
 						justifyContent: 'flex-start',
 						alignItems: 'center',
 					}}
-					className={'marqueeGroup'}
+					className="marqueeGroup"
 					gap={isSm ? 30 : 100}
 				>
 					{[...slideImgList, ...slideImgList].map((item, index) => {
@@ -647,6 +645,8 @@ const TypesOfAuction: React.FC<Notable1155Props> = ({ handleViewAll }) => {
 			<NftListDialog open={openNFTAuction} handleClose={handleClose} />
 		</>
 	)
-}
+})
 
 export default TypesOfAuction
+
+export const TypesOfAuctionOverview = TypesOfAuction

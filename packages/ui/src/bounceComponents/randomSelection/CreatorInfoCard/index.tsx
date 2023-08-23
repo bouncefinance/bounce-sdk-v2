@@ -14,8 +14,6 @@ import { CreatorUserInfo } from '@/api/pool/type'
 import Tooltip from '@/bounceComponents/common/Tooltip'
 import VerifiedIcon from '@/bounceComponents/common/VerifiedIcon'
 import { useUserInfo } from '@/state/users/hooks'
-import { useNavigate } from 'react-router-dom'
-import { routes } from '@/constants/routes'
 import DefaultAvatarSVG from '@/assets/imgs/profile/yellow_avatar.svg'
 import { useActiveWeb3React } from '@/hooks'
 import { PoolInfoProp } from '../type'
@@ -24,7 +22,7 @@ import AuctionFiles from '@/bounceComponents/fixed-swap/CreatorInfoCard/AuctionF
 import SocialMediaButtonGroup from '@/bounceComponents/fixed-swap/CreatorInfoCard/SocialMediaButtonGroup'
 import useBreakpoint from '../../../hooks/useBreakpoint'
 
-interface CreatorInfoCardProps {
+export interface CreatorInfoCardProps {
 	creatorUserInfo: CreatorUserInfo
 	creator: string
 	poolInfo: PoolInfoProp
@@ -38,7 +36,7 @@ const CreatorInfoCard: React.FC<CreatorInfoCardProps> = ({
 	creatorUserInfo,
 }) => {
 	const { token } = useUserInfo()
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const { account } = useActiveWeb3React()
 	const isMobile = useBreakpoint('lg')
 
@@ -60,10 +58,10 @@ const CreatorInfoCard: React.FC<CreatorInfoCardProps> = ({
 	const isCurrentUserCreatedThisPool = creator.toLowerCase() === account?.toLowerCase()
 
 	const handleUser = () => {
-		if (userInfo?.userType === USER_TYPE.USER) {
-			return navigate(`${routes.profile.summary}?id=${userInfo?.id}`)
-		}
-		return navigate(`${routes.profile.summary}?id=${userInfo?.companyId}`)
+		// if (userInfo?.userType === USER_TYPE.USER) {
+		// 	return navigate(`${routes.profile.summary}?id=${userInfo?.id}`)
+		// }
+		// return navigate(`${routes.profile.summary}?id=${userInfo?.companyId}`)
 	}
 
 	return (
@@ -89,7 +87,7 @@ const CreatorInfoCard: React.FC<CreatorInfoCardProps> = ({
 				onClick={handleUser}
 			/>
 
-			<Stack direction={'row'} alignItems="center" spacing={8} mt={24}>
+			<Stack direction="row" alignItems="center" spacing={8} mt={24}>
 				<Typography
 					variant="h4"
 					sx={{ '&:hover': { cursor: 'pointer', textDecoration: 'underline' } }}
