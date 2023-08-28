@@ -178,6 +178,10 @@ export default createTheme({
 						label: 'Data Display',
 						order: 2,
 					},
+					others: {
+						label: 'Others',
+						order: 999,
+					},
 				},
 			},
 		})

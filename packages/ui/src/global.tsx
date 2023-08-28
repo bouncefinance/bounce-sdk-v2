@@ -1,5 +1,5 @@
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
-import { createContext, PropsWithChildren, useMemo } from 'react'
+import { createContext, ReactNode, useMemo } from 'react'
 import { NetworkContextName } from './constants'
 import { getNetworkLibrary } from './connectors'
 import { InitialState } from './InitialState'
@@ -18,17 +18,11 @@ export const useSelector = createSelectorHook(MyContext)
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
-export const BounceProvider = ({
-	getLibrary,
-	children,
-	...rest
-}: PropsWithChildren<
-	Parameters<typeof Web3ReactProvider>[0] & {
-		theme?: {
-			fontFamily?: string
-		}
-	} & IMainContext
->) => {
+export type BounceProviderProps = Parameters<typeof Web3ReactProvider>[0] & {
+	children?: ReactNode
+} & IMainContext
+
+export const BounceProvider = ({ getLibrary, children, ...rest }: BounceProviderProps) => {
 	const context = useMemo<IMainContext>(() => rest, [rest])
 	return (
 		<Web3ReactProvider getLibrary={getLibrary}>

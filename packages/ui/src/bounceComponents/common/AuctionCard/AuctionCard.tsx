@@ -16,6 +16,9 @@ export type AuctionCardProps = {
 	 * pool id
 	 */
 	poolId: string
+	/**
+	 * pool status
+	 */
 	status: PoolStatus
 	dateStr: number
 	/**

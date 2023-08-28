@@ -27,7 +27,13 @@ export interface CreatorInfoCardProps {
 	creator: string
 	poolInfo: PoolInfoProp
 	getPoolInfo: () => void
+	/**
+	 * Click handler for the avatar
+	 */
 	onClickAvatar?: () => void
+	/**
+	 * Click handler for the username
+	 */
 	onClickUsername?: () => void
 }
 

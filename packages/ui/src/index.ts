@@ -1,3 +1,5 @@
+export type { IMainContext } from './context'
+
 export { TypesOfAuctionOverview } from './components'
 
 export {
@@ -17,6 +19,7 @@ export type {
 	RandomSelectionAuctionDetailProps,
 } from './bounceComponents'
 export { BounceProvider } from './global'
+export type { BounceProviderProps } from './global'
 export { PoolStatus, PoolType } from './api'
 export { BackedTokenType } from './enums'
 export { usePoolInfo } from './bounceHooks'

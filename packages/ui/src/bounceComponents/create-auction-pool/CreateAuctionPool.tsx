@@ -21,8 +21,17 @@ import { withBounceTheme } from '@/global'
 import { useActiveWeb3React } from '@/hooks'
 
 export interface CreateAuctionPoolProps {
+	/**
+	 * token type
+	 */
 	tokenType: TokenType
+	/**
+	 * auction type
+	 */
 	auctionType: AuctionType
+	/**
+	 *
+	 */
 	auctionInChainId: ChainId
 }
 
@@ -30,12 +39,11 @@ const steps = ['1. Token Information', '2. Auction Parameters', '3. Advanced Set
 
 const InteralCreateAuctionPool = () => {
 	const valuesState = useValuesState()
-	const { tokenType, auctionType, account } = valuesState
+	const { tokenType, auctionType } = valuesState
 	const valuesDispatch = useValuesDispatch()
 	const isSm = useBreakpoint('sm')
 
-	const temp = useActiveWeb3React()
-	console.log('🚀 ~ temp:', temp)
+	const { account } = useActiveWeb3React()
 	// const { tokenType, auctionType } = useQueryParams()
 
 	useEffect(() => {

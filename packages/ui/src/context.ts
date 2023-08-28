@@ -2,7 +2,13 @@ import { createContext, useContext } from 'react'
 import { ChainId } from './constants/chain'
 
 export interface IMainContext {
+	/**
+	 * global account
+	 */
 	account?: string
+	/**
+	 * global chain id
+	 */
 	chainId?: ChainId
 }
 
