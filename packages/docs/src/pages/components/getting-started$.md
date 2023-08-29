@@ -7,14 +7,14 @@ order: 0
 
 # Getting Started
 
-The @bounce/ui package provides React components for easily integrating BounceFinance into your application.
+The @bouncefinance/ui package provides React components for easily integrating BounceFinance into your application.
 
 ## Installation
 
 Install the package using pnpm:
 
 ```bash
-pnpm add @bounce/ui
+pnpm add @bouncefinance/ui
 ```
 
 ## Setup

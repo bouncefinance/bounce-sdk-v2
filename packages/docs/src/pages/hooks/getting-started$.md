@@ -7,7 +7,7 @@ order: 0
 
 # Getting Started
 
-The @bounce/hooks package provides many hooks. Written in TypeScript with predictable static types
+The @bouncefinance/hooks package provides abundant hooks written in TypeScript with predictable static types to facilitate development.
 
 ## Installation
 
@@ -19,7 +19,7 @@ $ pnpm add ahooks
 
 ## Setup
 
-Add the BounceProvider component to your app's root. You can also define some global state here, such as account and chainId.
+Integrate BounceProvider component at the root of your app. You may also configure global states like account and chainId here.
 
 ```tsx
 import { BounceProvider } from '@bouncefinance/ui'
@@ -39,8 +39,8 @@ export default () => {
 
 ## Usage
 
-Import and use any components you need, such as usePoolInfo.
+Import and utilize hooks as needed, such as usePoolInfo.
 
 ```ts
-import { usePoolInfo } from 'ahooks'
+import { usePoolInfo } from '@bouncefinance/hooks'
 ```
