@@ -94,9 +94,9 @@ export default createTheme({
 				},
 				// { label: 'Users', path: '/users', activeIfMatch: '/users' },
 				{
-					label: 'Components',
-					path: '/components/getting-started',
-					activeIfMatch: '/components',
+					label: 'Core',
+					path: '/core/getting-started',
+					activeIfMatch: '/core',
 				},
 				{
 					label: 'Hooks',
@@ -104,10 +104,11 @@ export default createTheme({
 					activeIfMatch: '/hooks',
 				},
 				{
-					label: 'Core',
-					path: '/core/getting-started',
-					activeIfMatch: '/core',
+					label: 'Components',
+					path: '/components/getting-started',
+					activeIfMatch: '/components',
 				},
+
 				// {
 				// 	subMenu: 'Links',
 				// 	children: [
