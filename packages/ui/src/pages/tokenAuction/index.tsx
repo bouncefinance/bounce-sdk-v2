@@ -8,24 +8,24 @@ import PoolListDialog from './components/listDialog'
 import React, { useState } from 'react'
 
 const TokenAuctionPage: React.FC = ({}) => {
-  const [open, setOpen] = useState(false)
-  const handleClose = () => {
-    setOpen(false)
-  }
-  const handleOpen = () => {
-    setOpen(true)
-  }
-  return (
-    <>
-      <HeaderTab />
-      <ArrowBanner type={'Token'} />
-      <TypesOfAuction handleViewAll={handleOpen} />
-      <NotableAuction handleViewAll={handleOpen} />
-      <UpcomingAuction handleViewAll={handleOpen} />
-      <FooterPc />
-      <PoolListDialog open={open} handleClose={handleClose} />
-    </>
-  )
+	const [open, setOpen] = useState(false)
+	const handleClose = () => {
+		setOpen(false)
+	}
+	const handleOpen = () => {
+		setOpen(true)
+	}
+	return (
+		<>
+			<HeaderTab />
+			<ArrowBanner type="Token" />
+			<TypesOfAuction handleViewAll={handleOpen} />
+			<NotableAuction handleViewAll={handleOpen} />
+			<UpcomingAuction handleViewAll={handleOpen} />
+			<FooterPc />
+			<PoolListDialog open={open} handleClose={handleClose} />
+		</>
+	)
 }
 
 export default TokenAuctionPage

@@ -6,10 +6,10 @@
 	"license": "",
 	"homepage": "/",
 	"private": false,
-	"types": "./lib/index.d.ts",
 	"publishConfig": {
 		"access": "public"
 	},
+	"types": "./lib/index.d.ts",
 	"exports": {
 		".": {
 			"development": "./lib/index.es.js",

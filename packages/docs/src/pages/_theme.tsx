@@ -8,8 +8,8 @@ import '../styles/index.less'
 import ReactGA from 'react-ga4'
 import { useLocation } from 'react-router-dom'
 import { useUpdateEffect } from 'ahooks'
-
-ReactGA.initialize('G-3T4CP7XLR0')
+import { BounceProvider } from '@bouncefinance/ui'
+import { Web3Provider } from '@ethersproject/providers'
 
 export default createTheme({
 	logoLink(ctx) {
@@ -37,7 +37,11 @@ export default createTheme({
 				event_label: resolvedLocale.localeKey,
 			})
 		}, [resolvedLocale.localeKey])
-		return props?.children
+		return (
+			<BounceProvider getLibrary={(provider) => new Web3Provider(provider, 'any')}>
+				{props?.children}
+			</BounceProvider>
+		)
 	},
 	i18n: {
 		defaultLocale: 'en',
@@ -94,6 +98,16 @@ export default createTheme({
 					path: '/components/getting-started',
 					activeIfMatch: '/components',
 				},
+				{
+					label: 'Hooks',
+					path: '/hooks/getting-started',
+					activeIfMatch: '/hooks',
+				},
+				{
+					label: 'Core',
+					path: '/core/getting-started',
+					activeIfMatch: '/core',
+				},
 				// {
 				// 	subMenu: 'Links',
 				// 	children: [
@@ -127,6 +141,16 @@ export default createTheme({
 					label: '组件',
 					path: '/zh/components/getting-started',
 					activeIfMatch: '/zh/components',
+				},
+				{
+					label: 'Hooks',
+					path: '/zh/hooks/getting-started',
+					activeIfMatch: '/zh/hooks',
+				},
+				{
+					label: 'Core',
+					path: '/zh/core/getting-started',
+					activeIfMatch: '/zh/core',
 				},
 				// {
 				// 	subMenu: '链接',

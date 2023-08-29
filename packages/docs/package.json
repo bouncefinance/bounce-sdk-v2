@@ -13,6 +13,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@bouncefinance/hooks": "workspace:^",
 		"@bouncefinance/ui": "workspace:^",
 		"@ethersproject/providers": "^5.7.2",
 		"@reduxjs/toolkit": "^1.9.5",

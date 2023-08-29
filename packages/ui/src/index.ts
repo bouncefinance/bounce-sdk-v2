@@ -22,7 +22,14 @@ export { BounceProvider } from './global'
 export type { BounceProviderProps } from './global'
 export { PoolStatus, PoolType } from './api'
 export { BackedTokenType } from './enums'
-export { usePoolInfo } from './bounceHooks'
+export {
+	usePoolInfo,
+	use1155TokenList,
+	useBackedPoolInfo,
+	useDashboardStat,
+	useCreatorClaim,
+} from './bounceHooks'
+export type { PoolInfoParams } from './types'
 // import { StrictMode } from 'react'
 // import { createRoot } from 'react-dom/client'
 // import 'inter-ui'
