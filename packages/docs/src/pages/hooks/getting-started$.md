@@ -14,7 +14,7 @@ The @bouncefinance/hooks package provides abundant hooks written in TypeScript w
 Install the package using pnpm:
 
 ```bash
-$ pnpm add ahooks
+$ pnpm add @bouncefinance/hooks
 ```
 
 ## Setup
