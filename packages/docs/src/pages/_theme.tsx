@@ -92,12 +92,12 @@ export default createTheme({
 						end: true,
 					},
 				},
-				// { label: 'Users', path: '/users', activeIfMatch: '/users' },
-				{
-					label: 'Core',
-					path: '/core/getting-started',
-					activeIfMatch: '/core',
-				},
+				// // { label: 'Users', path: '/users', activeIfMatch: '/users' },
+				// {
+				// 	label: 'Core',
+				// 	path: '/core/getting-started',
+				// 	activeIfMatch: '/core',
+				// },
 				{
 					label: 'Hooks',
 					path: '/hooks/getting-started',
@@ -148,11 +148,11 @@ export default createTheme({
 					path: '/zh/hooks/getting-started',
 					activeIfMatch: '/zh/hooks',
 				},
-				{
-					label: 'Core',
-					path: '/zh/core/getting-started',
-					activeIfMatch: '/zh/core',
-				},
+				// {
+				// 	label: 'Core',
+				// 	path: '/zh/core/getting-started',
+				// 	activeIfMatch: '/zh/core',
+				// },
 				// {
 				// 	subMenu: '链接',
 				// 	children: [
